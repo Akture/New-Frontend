@@ -319,7 +319,7 @@ const Slide1 = () => (
     <div style={customStyles.frameBgSecondary}></div>
     <img src="https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1200&auto=format&fit=crop" alt="Athlete in motion" style={customStyles.heroImage} />
     <div style={customStyles.heroNumber}>08</div>
-    <div style={customStyles.heroName}>Marcus<br /><span style={{ color: '#FF6F3C', display: 'block' }}>Sterling</span></div>
+    <div style={customStyles.heroName}>Bruce<br /><span style={{ color: '#FF6F3C', display: 'block' }}>Le</span></div>
     <div style={customStyles.glassPanel}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={customStyles.glassBadge}><div className="pulse-dot"></div> Live Session</div>
