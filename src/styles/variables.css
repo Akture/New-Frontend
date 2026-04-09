@@ -1,0 +1,11 @@
+:root {
+    --color-onyx: #010101;
+    --color-marble: #ffffff;
+    --color-ember: #bd2026;
+    --color-emerald: #00a693;
+    --color-sunset: #ff6f3c;
+    --color-slate: #5a7684;
+  
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
