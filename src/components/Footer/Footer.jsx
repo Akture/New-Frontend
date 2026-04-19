@@ -7,12 +7,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-6 inline-flex">
-              <div className="relative w-8 h-6 flex items-center justify-center">
+              <div className="relative w-10 h-7 flex items-center justify-center">
                 <LogoIcon />
               </div>
-              <span className="font-heading font-bold text-2xl tracking-tight text-marble" style={{ fontFamily: 'Outfit, sans-serif' }}>
-                akture
-              </span>
             </a>
 
             <p className="text-marble/50 text-sm leading-relaxed mb-8 max-w-sm">

@@ -6,15 +6,9 @@ export default function Header() {
     <header className="fixed top-14 left-0 right-0 z-50 px-6 md:px-12 flex justify-center w-full transition-all duration-300">
       <GlassPanel className="w-full max-w-7xl rounded-full px-6 py-3 flex items-center justify-between shadow-2xl shadow-black/50">
         <a href="#" className="flex items-center gap-2 group">
-          <div className="relative w-10 h-8 flex items-center justify-center">
+          <div className="relative w-12 h-10 flex items-center justify-center">
             <LogoIcon className="group-hover:scale-105 transition-transform" />
           </div>
-          <span
-            className="font-heading font-bold text-2xl tracking-tight text-marble"
-            style={{ fontFamily: 'Outfit, sans-serif' }}
-          >
-            akture
-          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">

@@ -83,9 +83,11 @@ export default function HeroSection() {
                       {slide.btn1Text} <i className="ph-bold ph-arrow-right"></i>
                     </button>
 
-                    <GlassPanel className="hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg cursor-pointer">
-                      {slide.btn2Text} {slide.btn2Icon && <i className={slide.btn2Icon}></i>}
-                    </GlassPanel>
+                    {slide.btn2Text && (
+                      <GlassPanel className="hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg cursor-pointer">
+                        {slide.btn2Text} {slide.btn2Icon && <i className={slide.btn2Icon}></i>}
+                      </GlassPanel>
+                    )}
                   </div>
                 </div>
               </div>
