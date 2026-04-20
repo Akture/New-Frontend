@@ -1,8 +1,8 @@
 export const heroSlides = [
     {
       id: 0,
-      image: 'https://images.unsplash.com/photo-1552674605-e71f158fb48b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80',
-      alt: 'Sprinter on blocks',
+      image: '/rainy-soccer-field.jpeg',
+      alt: 'Rainy soccer field',
       badgeColor: 'bg-emerald/20 border-emerald/30 text-emerald',
       badgeIcon: 'ph-fill ph-lightning',
       badgeText: 'For Players',
