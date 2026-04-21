@@ -1,7 +1,8 @@
 import HeroSection from '../components/HeroSection/HeroSection';
 import FeaturesSection from '../components/FeaturesSection/FeaturesSection';
-import HighlightsSection from '../components/HighlightsSection/HighlightsSection';
-import NewsletterSection from '../components/NewsletterSection/NewsletterSection';
+import VideoSection from '../components/VideoSection/VideoSection';
+import NewsletterCalloutSection from '../components/NewsletterCalloutSection/NewsletterCalloutSection';
+import FacilitySection from '../components/FacilitySection/FacilitySection';
 import Footer from '../components/Footer/Footer';
 
 export default function HomePage() {
@@ -9,8 +10,9 @@ export default function HomePage() {
     <>
       <HeroSection />
       <FeaturesSection />
-      <HighlightsSection />
-      <NewsletterSection />
+      <VideoSection />
+      <NewsletterCalloutSection />
+      <FacilitySection />
       <Footer />
     </>
   );
