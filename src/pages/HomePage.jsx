@@ -1,3 +1,5 @@
+import Banner from '../components/Banner/Banner';
+import Header from '../components/Header/Header';
 import HeroSection from '../components/HeroSection/HeroSection';
 import FeaturesSection from '../components/FeaturesSection/FeaturesSection';
 import VideoSection from '../components/VideoSection/VideoSection';
@@ -8,6 +10,8 @@ import Footer from '../components/Footer/Footer';
 export default function HomePage() {
   return (
     <>
+      <Banner />
+      <Header />
       <HeroSection />
       <FeaturesSection />
       <VideoSection />
