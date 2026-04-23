@@ -7,7 +7,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className={`fixed top-14 left-0 right-0 z-50 px-6 md:px-12 flex w-full transition-all duration-300 ${mobileOpen ? 'justify-start md:justify-center' : 'justify-center'}`}>
+    <header className={`fixed top-10 left-0 right-0 z-50 px-6 md:px-12 flex w-full transition-all duration-300 ${mobileOpen ? 'justify-start md:justify-center' : 'justify-center'}`}>
       <GlassPanel
         className={`inline-flex flex-col max-w-7xl rounded-full shadow-2xl shadow-black/50 overflow-hidden ${mobileOpen ? 'w-max md:w-full rounded-3xl' : 'w-full rounded-full'}`}
         style={{ transition: mobileOpen ? 'width 300ms ease 0ms' : 'width 300ms ease 0ms' }}
@@ -35,7 +35,7 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">Home</Link>
-            <a href="#" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">Features</a>
+            <Link to ="/Purchase" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">Purchase</Link>
             <a href="#" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors flex items-center gap-1">
               Live{' '}
               <span
@@ -43,20 +43,14 @@ export default function Header() {
                 style={{ display: 'inline-block', animation: 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
               />
             </a>
-            <Link to="/about" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">About</Link>
             <a href="#" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">Pricing</a>
-            <a href="#" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">Contact</a>
+            <Link to="/about" className="text-sm font-medium text-marble/80 hover:text-marble transition-colors">About</Link>
           </nav>
 
           <div className={`items-center gap-4 ${mobileOpen ? 'hidden md:flex' : 'flex'}`}>
-            <a href="#" className="hidden lg:block text-sm font-medium text-marble/80 hover:text-marble transition-colors">Log In</a>
-            <a
-              href="#"
-              className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4"
-              style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
-            >
-              Start Free Trial
-            </a>
+            <Link to="/login" className="hidden lg:block text-sm font-medium text-marble/80 hover:text-marble transition-colors">Log In</Link>
+            <Link to="/register" className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4" style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
+            >Register</Link>
           </div>
         </div>
 
