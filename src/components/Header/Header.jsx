@@ -8,7 +8,6 @@ export default function Header() {
 
   const navLinks = [
     { label: 'Home', to: '/' },
-    { label: 'Purchase', to: '/purchase' },
     { label: 'Live', to: '/livestreams', live: true },
     { label: 'Pricing', to: '/pricing' },
     { label: 'About', to: '/about' },
@@ -72,11 +71,11 @@ export default function Header() {
             </Link>
 
             <Link
-              to="/register"
+              to="https://akture.video/explore"
               className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4"
               style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
             >
-              Register
+              Purchase
             </Link>
           </div>
         </div>
@@ -116,12 +115,12 @@ export default function Header() {
             </Link>
 
             <Link
-              to="/register"
+              to="/https://akture.video/explore"
               onClick={() => setMobileOpen(false)}
               className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-center"
               style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
             >
-              Register
+              Purchase
             </Link>
           </nav>
         </div>

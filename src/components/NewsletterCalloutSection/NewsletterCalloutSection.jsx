@@ -26,7 +26,7 @@ export default function NewsletterCalloutSection() {
               Get the Most Out of Your Akture Experience
             </h2>
             <p className="text-marble/60 text-lg">
-              Subscribe to Akture\'s monthly newsletter to stay up-to-date on all the action, see highlights of users and facilities, and get early notice of exclusive opportunities.
+              Subscribe to Akture's monthly newsletter to stay up-to-date on all the action, see highlights of users and facilities, and get early notice of exclusive opportunities.
             </p>
           </div>
 
