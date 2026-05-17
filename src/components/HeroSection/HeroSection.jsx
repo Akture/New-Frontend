@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import GlassPanel from '../GlassPanel/GlassPanel';
 import { heroSlides } from '../../data/heroSlides';
 
@@ -7,21 +7,23 @@ export default function HeroSection() {
   const intervalRef = useRef(null);
   const totalSlides = heroSlides.length;
 
-  const startInterval = () => {
+  const startInterval = useCallback(() => {
+    clearInterval(intervalRef.current);
+
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     }, 6000);
-  };
+  }, [totalSlides]);
 
-  const resetInterval = () => {
-    clearInterval(intervalRef.current);
+  const resetInterval = useCallback(() => {
     startInterval();
-  };
+  }, [startInterval]);
 
   useEffect(() => {
     startInterval();
+
     return () => clearInterval(intervalRef.current);
-  }, []);
+  }, [startInterval]);
 
   const goNext = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -76,17 +78,22 @@ export default function HeroSection() {
                   </p>
 
                   <div className="flex flex-wrap items-center gap-4">
-                    <button
-                      className={`${slide.btn1Class} px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg`}
-                      style={slide.btn1Shadow ? { boxShadow: slide.btn1Shadow } : {}}
-                    >
-                      {slide.btn1Text} <i className="ph-bold ph-arrow-right"></i>
-                    </button>
+                    {slide.btn1Text && slide.btn1Href && (
+                      <a
+                        href={slide.btn1Href}
+                        className={`${slide.btn1Class} px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg`}
+                        style={slide.btn1Shadow ? { boxShadow: slide.btn1Shadow } : {}}
+                      >
+                        {slide.btn1Text} <i className="ph-bold ph-arrow-right"></i>
+                      </a>
+                    )}
 
-                    {slide.btn2Text && (
-                      <GlassPanel className="hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg cursor-pointer">
-                        {slide.btn2Text} {slide.btn2Icon && <i className={slide.btn2Icon}></i>}
-                      </GlassPanel>
+                    {slide.btn2Text && slide.btn2Href && (
+                      <a href={slide.btn2Href}>
+                        <GlassPanel className="hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg cursor-pointer">
+                          {slide.btn2Text} {slide.btn2Icon && <i className={slide.btn2Icon}></i>}
+                        </GlassPanel>
+                      </a>
                     )}
                   </div>
                 </div>

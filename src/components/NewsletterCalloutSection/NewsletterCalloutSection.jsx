@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwco7thhVqzF5NaUbF68b7HNfpJ3nCHGN2f0kMkI-qo1u9Id3_glcPxychpNvjO6eJK/exec';
+
 const newsletterHighlights = [
   {
     title: 'Early Updates',
@@ -17,14 +21,52 @@ const newsletterHighlights = [
 ];
 
 export default function NewsletterCalloutSection() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      setStatus('Please enter your email.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus('');
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      setStatus('Thanks for signing up!');
+      setEmail('');
+    } catch (error) {
+      setStatus('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-24 bg-black relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mt-20">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ fontFamily: 'Outfit, sans-serif' }}>
+            <h2
+              className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
               Get the Most Out of Your Akture Experience
             </h2>
+
             <p className="text-marble/60 text-lg">
               Subscribe to Akture's monthly newsletter to stay up-to-date on all the action, see highlights of users and facilities, and get early notice of exclusive opportunities.
             </p>
@@ -32,30 +74,53 @@ export default function NewsletterCalloutSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {newsletterHighlights.map((item, index) => (
-              <div key={index} className={`rounded-3xl border p-8 shadow-xl shadow-emerald/10 transition-all hover:-translate-y-1 ${item.bgClass}`}>
-                <h3 className="font-heading text-xl font-semibold mb-3" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              <div
+                key={index}
+                className={`rounded-3xl border p-8 shadow-xl shadow-emerald/10 transition-all hover:-translate-y-1 ${item.bgClass}`}
+              >
+                <h3
+                  className="font-heading text-xl font-semibold mb-3"
+                  style={{ fontFamily: 'Outfit, sans-serif' }}
+                >
                   {item.title}
                 </h3>
-                <p className="text-marble/80 text-sm leading-relaxed">{item.description}</p>
+
+                <p className="text-marble/80 text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
 
           <div className="mt-12 max-w-3xl mx-auto">
-            <form onSubmit={(e) => e.preventDefault()} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+            >
               <div className="flex flex-col gap-4 md:flex-row md:items-center">
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                   className="flex-1 rounded-full border border-white/10 bg-black/70 px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-ember/50"
                 />
+
                 <button
                   type="submit"
-                  className="rounded-full bg-ember px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-red-700"
+                  disabled={isSubmitting}
+                  className="rounded-full bg-ember px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Sign Up
+                  {isSubmitting ? 'Signing Up...' : 'Sign Up'}
                 </button>
               </div>
+
+              {status && (
+                <p className="mt-4 text-center text-sm text-marble/70">
+                  {status}
+                </p>
+              )}
             </form>
           </div>
         </div>
