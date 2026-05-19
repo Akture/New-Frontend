@@ -5,8 +5,8 @@ export default function Footer() {
   const exploreLinks = [
     { label: 'Home', path: '/' },
     { label: 'Purchase', path: 'https://akture.video/explore' },
-    { label: 'Pricing', path: '/pricing' },
-    { label: 'Contact', path: '/about' },
+    { label: 'Pricing', path: '/akture.video/pricing' },
+    { label: 'Contact', path: '/akture.video/contact' },
   ];
 
   const policyLinks = [
@@ -24,9 +24,9 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', path: '#' },
-    { label: 'Terms of Service', path: '#' },
-    { label: 'Cookie Settings', path: '#' },
+    { label: 'Privacy Policy', path: 'https://akture.video/privacy-policy' },
+    { label: 'Terms of Service', path: 'https://akture.video/terms-of-service' },
+    { label: 'Cookie Settings', path: 'https://akture.video/cookie-policy' },
   ];
 
   return (
