@@ -89,7 +89,7 @@ export default function FeaturesSection() {
             <a href="https://akture.video/explore"
               className="bg-ember hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all inline-block"
             >
-            Start Training With Akture
+            Start Capturing With Akture
             </a>
           </div>
         </div>
