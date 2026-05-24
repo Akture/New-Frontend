@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import PurchasePage from './pages/PurchasePage';
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/pricing" element={<PricingPage />} />
         </Routes>
       </div>
+      <Analytics />
     </Router>
   );
 }
