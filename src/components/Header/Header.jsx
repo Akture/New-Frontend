@@ -9,7 +9,7 @@ export default function Header() {
   const navLinks = [
     { label: 'Home', to: '/' },
     { label: 'Live', to: '/livestreams', live: true },
-    { label: 'Pricing', to: '/pricing' },
+    { label: 'Pricing', to: 'https://akture.video/pricing' },
     { label: 'About', to: '/about' },
   ];
 
@@ -64,7 +64,7 @@ export default function Header() {
 
           <div className={`items-center gap-4 ${mobileOpen ? 'hidden' : 'flex'}`}>
             <Link
-              to="/login"
+              to="https://akture.video/login"
               className="hidden lg:block text-sm font-medium text-marble/80 hover:text-marble transition-colors"
             >
               Log In
@@ -107,7 +107,7 @@ export default function Header() {
             ))}
 
             <Link
-              to="/login"
+              to="https://akture.video/login"
               onClick={() => setMobileOpen(false)}
               className="text-sm font-medium text-marble/80 hover:text-marble transition-colors"
             >
@@ -115,7 +115,7 @@ export default function Header() {
             </Link>
 
             <Link
-              to="/https://akture.video/explore"
+              to="https://akture.video/explore"
               onClick={() => setMobileOpen(false)}
               className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-center"
               style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}

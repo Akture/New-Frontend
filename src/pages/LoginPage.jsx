@@ -85,7 +85,7 @@ export default function LoginPage() {
                     Password
                   </label>
                   <a
-                    href="#"
+                    href="https://akture.video/forgot-password"
                     className="text-[12px] font-semibold hover:text-red-800 transition-colors"
                     style={{ color: '#BD2026' }}
                   >
@@ -145,8 +145,8 @@ export default function LoginPage() {
 
             <p className="text-center text-xs text-gray-400 mt-8">
               By signing in you agree to our{' '}
-              <a href="#" className="underline hover:text-gray-600">Terms</a> and{' '}
-              <a href="#" className="underline hover:text-gray-600">Privacy Policy</a>.
+              <a href="https://akture.video/terms-of-service" className="underline hover:text-gray-600">Terms</a> and{' '}
+              <a href="https://akture.video/privacy-policy" className="underline hover:text-gray-600">Privacy Policy</a>.
             </p>
           </div>
         </div>

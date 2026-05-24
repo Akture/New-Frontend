@@ -12,7 +12,9 @@ export const heroSlides = [
       description: 'Save videos of your time playing to download and share, no subscription required.',
       btn1Class: 'bg-ember hover:bg-red-700 text-white',
       btn1Text: 'Purchase',
+      btn1Href: 'https://akture.video/explore',
       btn2Text: 'Learn More',
+      btn2Href: 'https://akture.video/pricing',
       btn2Icon: null,
     },
     {
@@ -29,7 +31,9 @@ export const heroSlides = [
       btn1Class: 'bg-sunset hover:bg-orange-600 text-white text-onyx',
       btn1Shadow: '0 0 20px rgba(255,111,60,0.4)',
       btn1Text: 'Purchase',
+      btn1Href: 'https://akture.video/explore',
       btn2Text: 'Learn More',
+      btn2Href: 'https://akture.video/pricing',
       btn2Icon: null,
     },
     {
@@ -45,7 +49,9 @@ export const heroSlides = [
       description: 'Game footage is your facility\'s most powerful marketing tool.',
       btn1Class: 'bg-slate hover:bg-slate-700 text-white',
       btn1Text: 'Contact Us',
+      btn1Href: 'https://akture.video/contact',
       btn2Text: 'Learn More',
+      btn2Href: 'https://akture.video/pricing',
       btn2Icon: null,
     },
     {
@@ -62,7 +68,9 @@ export const heroSlides = [
       btn1Class: 'bg-ember hover:bg-red-700 text-white',
       btn1Shadow: '0 0 15px rgba(189,32,38,0.4)',
       btn1Text: 'Purchase',
+      btn1Href: 'https://akture.video/explore',
       btn2Text: 'Learn More',
+      btn2Href: 'https://akture.video/pricing',
       btn2Icon: null,
     },
     {
@@ -78,7 +86,9 @@ export const heroSlides = [
       description: 'Site managers, owners, and coaches can start livestreams from any Akture-equipped court or field.',
       btn1Class: 'bg-ember hover:bg-red-700 text-white',
       btn1Text: 'Contact Us',
+      btn1Href: 'https://akture.video/contact',
       btn2Text: 'Learn More',
+      btn2Href: 'https://akture.video/pricing',
       btn2Icon: null,
     },
     {
@@ -95,6 +105,7 @@ export const heroSlides = [
       btn1Class: 'bg-sunset hover:bg-orange-600 text-white text-onyx',
       btn1Shadow: '0 0 20px rgba(255,111,60,0.4)',
       btn1Text: 'Learn More',
+      btn1Href: 'https://akture.video/pricing',
       btn2Text: null,
       btn2Icon: null,
     },
