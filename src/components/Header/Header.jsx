@@ -7,10 +7,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', to: '/' },
-    { label: 'Live', to: '/livestreams', live: true },
-    { label: 'Pricing', to: 'https://akture.video/pricing' },
-    { label: 'About', to: '/about' },
+    { label: 'Home', to: 'https://home.akture.video' },
+    { label: 'Live', to: 'https://home.akture.video/livestreams', live: true },
+    { label: 'Pricing', to: 'https://home.akture.video/pricing' },
+    { label: 'About', to: 'https://home.akture.video/about' },
+    { label: 'FAQ', to: 'https://home.akture.video/faq' },
   ];
 
   return (

@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import PurchasedVideosPage from './pages/PurchasedVideosPage';
 import LivestreamsPage from './pages/LivestreamsPage';
 import PricingPage from './pages/PricingPage';
+import FAQPage from './pages/FAQPage';
 
 export default function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/my-videos" element={<PurchasedVideosPage />} />
           <Route path="/livestreams" element={<LivestreamsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </div>
       <Analytics />
