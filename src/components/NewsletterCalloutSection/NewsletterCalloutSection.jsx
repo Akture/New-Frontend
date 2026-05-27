@@ -109,8 +109,7 @@ export default function NewsletterCalloutSection() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="rounded-full bg-ember px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="rounded-full bg-ember px-8 py-4 text-sm font-semibold text-white transition-all bg-gradient-ember"
                 >
                   {isSubmitting ? 'Signing Up...' : 'Sign Up'}
                 </button>

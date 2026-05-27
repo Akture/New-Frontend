@@ -1,6 +1,6 @@
 export default function PurchaseVideoCard({ match, onAdd, addedToCart }) {
     return (
-      <div className="bg-[#111827] rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-800 hover:shadow-[0_0_20px_rgba(230,57,70,0.2)] transition-all duration-300 group flex flex-col">
+      <div className="bg-surface rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-800 hover:shadow-[0_0_20px_rgba(189,32,38,0.2)] transition-all duration-300 group flex flex-col">
         <div className="relative aspect-video bg-gray-900 overflow-hidden">
           <div className={`absolute inset-0 ${match.gradientDir} ${match.gradient}`}></div>
   
@@ -31,7 +31,7 @@ export default function PurchaseVideoCard({ match, onAdd, addedToCart }) {
         </div>
   
         <div className="p-5 flex-1 flex flex-col">
-          <h3 className="font-extrabold text-base text-white leading-tight mb-2 group-hover:text-[#E63946] transition-colors line-clamp-2">
+          <h3 className="font-extrabold text-base text-white leading-tight mb-2 group-hover:text-ember transition-colors line-clamp-2">
             {match.title}
           </h3>
   
@@ -46,8 +46,8 @@ export default function PurchaseVideoCard({ match, onAdd, addedToCart }) {
               onClick={() => onAdd(match.id)}
               className={`${
                 addedToCart
-                  ? 'bg-[#E63946] text-white'
-                  : 'bg-gray-800 text-white hover:bg-[#E63946] hover:text-white'
+                  ? 'bg-ember text-white'
+                  : 'bg-gray-800 text-white hover:bg-ember hover:text-white'
               } font-bold py-2 px-4 rounded-lg transition-colors text-xs uppercase tracking-wider flex items-center gap-1.5`}
             >
               <i className={`ph-bold ${addedToCart ? 'ph-check' : 'ph-shopping-cart-simple'} text-sm`}></i>

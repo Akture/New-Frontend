@@ -1,34 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthLeftPanel from '../components/Auth/AuthLeftPanel';
 import AuthFooter from '../components/Auth/AuthFooter';
-import { authStyles } from '../components/Auth/authStyles';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('password123');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      body { font-family: 'Inter', sans-serif; }
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-      ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    `;
-    document.head.appendChild(style);
-
-    const phosphorScript = document.createElement('script');
-    phosphorScript.src = 'https://unpkg.com/@phosphor-icons/web';
-    document.head.appendChild(phosphorScript);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,8 +51,7 @@ export default function LoginPage() {
                     placeholder="johndoe or johndoe@gmail.com"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium"
-                    style={{ ...authStyles.inputBg, '--tw-ring-color': 'rgba(189,32,38,0.2)' }}
+                    className="w-full pl-12 pr-4 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium"
                   />
                 </div>
               </div>
@@ -100,8 +77,7 @@ export default function LoginPage() {
                     placeholder="••••••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-12 pr-12 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium font-mono text-lg tracking-widest"
-                    style={authStyles.inputBg}
+                    className="w-full pl-12 pr-12 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium font-mono text-lg tracking-widest"
                   />
                   <button
                     type="button"
@@ -115,10 +91,7 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                className="w-full text-white py-3.5 rounded-[14px] font-semibold text-[15px] shadow-sm transition-all duration-200 mt-2"
-                style={{ backgroundColor: '#BD2026' }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#a61c22')}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#BD2026')}
+                className="w-full bg-gradient-ember text-white py-3.5 rounded-form font-semibold text-[15px] shadow-sm transition-all duration-200 mt-2"
               >
                 Sign in
               </button>
@@ -133,13 +106,12 @@ export default function LoginPage() {
             <div className="text-center">
               <p className="text-gray-600 font-medium">
                 Don't have an account?
-                <Link
-                  to="/register"
-                  className="font-bold hover:underline ml-1"
-                  style={{ color: '#BD2026' }}
+                <a
+                  href="https://akture.video/register"
+                  className="text-ember font-bold hover:underline ml-1"
                 >
                   Create one free
-                </Link>
+                </a>
               </p>
             </div>
 

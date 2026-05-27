@@ -7,7 +7,6 @@ import StorageCard from '../components/Dashboard/StorageCard';
 import EmptyVideoGrid from '../components/Dashboard/EmptyVideoGrid';
 import FeedbackTab from '../components/Dashboard/FeedbackTab';
 import SubscriptionTab from '../components/Dashboard/SubscriptionTab';
-import { purchaseStyles } from '../components/PurchaseVideos/PurchaseStyles';
 
 export default function PurchasedVideosPage() {
   const [activeSubNav, setActiveSubNav] = useState('purchased');
@@ -27,11 +26,11 @@ export default function PurchasedVideosPage() {
               </h1>
 
               <div className="flex flex-col gap-2 mt-2">
-                <p className="text-sm font-medium flex items-center justify-center gap-2 text-[#E63946]">
+                <p className="text-sm font-medium flex items-center justify-center gap-2 text-ember">
                   *If you are experiencing download issues, please try desktop or another mobile browser.*
                 </p>
 
-                <p className="text-sm font-medium flex items-center justify-center gap-2 text-[#E63946]/90">
+                <p className="text-sm font-medium flex items-center justify-center gap-2 text-ember/90">
                   *Leave us feedback below or via the "Leave Feedback" tab.*
                 </p>
               </div>
@@ -88,10 +87,7 @@ export default function PurchasedVideosPage() {
       <Header />
 
       <main className="flex-grow w-full relative pt-12">
-        <div
-          className="absolute inset-0 opacity-100 pointer-events-none z-0"
-          style={purchaseStyles.bgPattern}
-        />
+        <div className="absolute inset-0 opacity-100 pointer-events-none z-0 bg-dot-pattern" />
 
         <div className="relative z-10">
           <DashboardSubNav

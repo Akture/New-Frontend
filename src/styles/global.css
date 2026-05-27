@@ -49,3 +49,29 @@ img {
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+
+.text-gradient-ember {
+  background: linear-gradient(90deg, theme('colors.ember.DEFAULT') 0%, theme('colors.sunset') 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-ember {
+  background: linear-gradient(90deg, theme('colors.ember.DEFAULT') 0%, theme('colors.sunset') 100%);
+  transition: filter 0.2s ease;
+}
+
+.bg-gradient-ember:hover {
+  filter: brightness(0.9);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }

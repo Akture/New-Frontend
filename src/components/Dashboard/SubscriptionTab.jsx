@@ -15,7 +15,7 @@ export default function SubscriptionTab() {
           
           <div className="flex items-center justify-between mb-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-ember">
+              <span className="text-xs font-bold uppercase tracking-widest text-gradient-ember">
                 Current Plan
               </span>
 
@@ -68,7 +68,7 @@ export default function SubscriptionTab() {
         </div>
 
         <button
-          className="w-full py-3.5 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-200 hover:-translate-y-0.5 bg-ember hover:bg-red-800 shadow-[0_10px_15px_-3px_rgba(189,32,38,0.3)] hover:shadow-[0_10px_15px_-3px_rgba(189,32,38,0.5)]"
+          className="w-full py-3.5 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-200 hover:-translate-y-0.5 bg-gradient-ember shadow-[0_10px_15px_-3px_rgba(189,32,38,0.3)] hover:shadow-[0_10px_15px_-3px_rgba(189,32,38,0.5)]"
         >
           Upgrade Plan
         </button>

@@ -1,7 +1,7 @@
 export default function LivestreamEmptyState() {
   return (
     <div className="flex flex-col items-center justify-center text-center py-28">
-      <div className="text-5xl mb-6">⚠️</div>
+      <div className="text-5xl mb-6 text-ember"><i className="ph ph-warning"></i></div>
 
       <h2 className="text-2xl font-black text-onyx dark:text-white mb-3">
         Error Loading Livestreams

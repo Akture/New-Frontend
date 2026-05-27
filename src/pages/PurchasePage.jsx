@@ -6,7 +6,6 @@ import PurchaseHero from '../components/PurchaseVideos/PurchaseHero';
 import PurchaseSearchForm from '../components/PurchaseVideos/PurchaseSearchForm';
 import PurchaseResultsHeader from '../components/PurchaseVideos/PurchaseResultsHeader';
 import PurchaseVideoCard from '../components/PurchaseVideos/PurchaseVideoCard';
-import { purchaseStyles } from '../components/PurchaseVideos/PurchaseStyles';
 import { matchData } from '../components/PurchaseVideos/PurchaseData';
 
 export default function PurchasePage() {
@@ -49,10 +48,7 @@ export default function PurchasePage() {
       <Header />
 
       <main className="flex-grow w-full relative pt-12">
-        <div
-          className="absolute inset-0 opacity-100 pointer-events-none z-0"
-          style={purchaseStyles.bgPattern}
-        ></div>
+        <div className="absolute inset-0 opacity-100 pointer-events-none z-0 bg-dot-pattern"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10">
           <PurchaseHero />
@@ -94,7 +90,7 @@ export default function PurchasePage() {
                 <div className="mt-10 flex justify-center">
                   <button
                     onClick={handleLoadMore}
-                    className="bg-[#111827] border-2 border-gray-700 text-white hover:border-[#E63946] hover:text-[#E63946] font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-widest text-xs flex items-center gap-2"
+                    className="bg-surface border-2 border-gray-700 text-white hover:border-ember hover:text-ember font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-widest text-xs flex items-center gap-2"
                   >
                     <i className="ph-bold ph-arrows-clockwise"></i> Load More
                   </button>

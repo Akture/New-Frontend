@@ -71,13 +71,14 @@ export default function Header() {
               Log In
             </Link>
 
-            <Link
-              to="https://akture.video/explore"
-              className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4"
-              style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
+            <a
+              href="https://akture.video/explore"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-ember text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4 shadow-ember-sm"
             >
               Purchase
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -115,14 +116,15 @@ export default function Header() {
               Log In
             </Link>
 
-            <Link
-              to="https://akture.video/explore"
+            <a
+              href="https://akture.video/explore"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-center"
-              style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
+              className="bg-gradient-ember text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-center shadow-ember-sm"
             >
               Purchase
-            </Link>
+            </a>
           </nav>
         </div>
       </GlassPanel>

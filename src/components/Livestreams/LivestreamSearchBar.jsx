@@ -28,9 +28,9 @@ export default function LivestreamSearchBar({
 
         <button
           onClick={onClear}
-          className="rounded-2xl border px-6 py-4 text-lg font-semibold border-gray-300 text-gray-600 hover:border-ember hover:text-ember dark:border-gray-700 dark:text-gray-300 dark:hover:border-ember"
+          className="rounded-2xl border px-6 py-4 text-lg font-semibold border-gray-300 text-gray-600 hover:border-ember hover:text-ember dark:border-gray-700 dark:text-gray-300 dark:hover:border-ember flex items-center gap-2"
         >
-          🗑 Clear
+          <i className="ph ph-trash"></i> Clear
         </button>
       </div>
     </div>

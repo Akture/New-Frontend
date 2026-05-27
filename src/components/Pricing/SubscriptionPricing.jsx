@@ -104,7 +104,7 @@ export default function SubscriptionPricing() {
                 <ul className="space-y-4 mt-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm text-slate dark:text-gray-300">
-                      <span className="w-5 h-5 rounded-full bg-purple-100 text-purple-500 flex items-center justify-center text-xs shrink-0">
+                      <span className="w-5 h-5 rounded-full bg-emerald/20 text-emerald flex items-center justify-center text-xs shrink-0">
                         ✓
                       </span>
                       <span>{feature}</span>
@@ -115,7 +115,7 @@ export default function SubscriptionPricing() {
                 <button
                   className={`w-full mt-8 py-3 rounded-xl font-black transition-all ${
                     plan.popular
-                      ? 'bg-ember hover:bg-red-800 text-white'
+                      ? 'bg-gradient-ember text-white'
                       : 'bg-ember/10 hover:bg-ember hover:text-white text-ember'
                   }`}
                 >
@@ -128,7 +128,7 @@ export default function SubscriptionPricing() {
 
         <p className="text-sm text-gray-400 mt-8">
           All plans include a free tier. No credit card required to get started.{' '}
-          <span className="text-ember font-bold">Create your free account →</span>
+          <span className="text-gradient-ember font-bold">Create your free account →</span>
         </p>
       </div>
     </section>

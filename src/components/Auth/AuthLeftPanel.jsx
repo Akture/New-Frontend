@@ -1,5 +1,5 @@
 import FeatureItem from './FeatureItem';
-import { authStyles } from './authStyles';
+import LogoIcon from '../LogoIcon/LogoIcon';
 
 export default function AuthLeftPanel() {
   return (
@@ -10,28 +10,22 @@ export default function AuthLeftPanel() {
       ></div>
 
       <div className="relative z-10">
-        <div className="flex items-center">
-          <span className="relative" style={{ fontSize: '2.25rem', color: '#BD2026' }}>
-            <i className="ph ph-camera text-4xl" style={{ color: '#BD2026' }}></i>
-            <span
-              className="absolute top-1 right-0 w-2 h-2 bg-red-600 rounded-full animate-pulse"
-              style={{ backgroundColor: '#BD2026' }}
-            ></span>
-          </span>
+        <div className="w-36 h-10">
+          <LogoIcon />
         </div>
       </div>
 
       <div className="relative z-10 flex flex-col justify-center mb-20">
-        <p className="text-[11px] font-bold tracking-[0.2em] uppercase mb-4" style={{ color: '#BD2026' }}>
+        <p className="text-gradient-ember text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
           Action Capture System
         </p>
 
         <h1 className="text-white text-5xl xl:text-[56px] font-black leading-[1.05] tracking-tight mb-2">
           ALL YOUR MOMENTS,
           <br />
-          <span style={authStyles.gradientText}>PERFECTLY</span>
+          <span className="text-gradient-ember">PERFECTLY</span>
           <br />
-          <span style={authStyles.gradientText}>PRESERVED</span>
+          <span className="text-gradient-ember">PRESERVED</span>
         </h1>
 
         <p className="text-gray-400 text-lg mt-6 mb-12 max-w-md">

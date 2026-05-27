@@ -3,7 +3,7 @@ export default function LivestreamAnalytics() {
     { label: 'Total Streams', value: 0, color: 'text-emerald' },
     { label: 'Active Streams', value: 0, color: 'text-sunset' },
     { label: 'Scheduled', value: 0, color: 'text-slate' },
-    { label: 'Completed', value: 0, color: 'text-green-600' },
+    { label: 'Completed', value: 0, color: 'text-emerald' },
   ];
 
   return (

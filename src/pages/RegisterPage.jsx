@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthLeftPanel from '../components/Auth/AuthLeftPanel';
 import AuthFooter from '../components/Auth/AuthFooter';
-import { authStyles } from '../components/Auth/authStyles';
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -13,27 +12,6 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [termsChecked, setTermsChecked] = useState(false);
-
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      body { font-family: 'Inter', sans-serif; }
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-      ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    `;
-    document.head.appendChild(style);
-
-    const phosphorScript = document.createElement('script');
-    phosphorScript.src = 'https://unpkg.com/@phosphor-icons/web';
-    document.head.appendChild(phosphorScript);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,8 +55,7 @@ export default function RegisterPage() {
                     placeholder="Choose a username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium"
-                    style={authStyles.inputBg}
+                    className="w-full pl-12 pr-4 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium"
                   />
                 </div>
               </div>
@@ -94,8 +71,7 @@ export default function RegisterPage() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium"
-                    style={authStyles.inputBg}
+                    className="w-full pl-12 pr-4 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium"
                   />
                 </div>
               </div>
@@ -111,8 +87,7 @@ export default function RegisterPage() {
                     placeholder="mm/dd/yyyy"
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
-                    className="w-full pl-12 pr-12 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium"
-                    style={authStyles.inputBg}
+                    className="w-full pl-12 pr-12 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium"
                   />
                   <i className="ph-bold ph-calendar-plus absolute right-4 text-gray-400 text-lg z-10 pointer-events-none"></i>
                 </div>
@@ -129,8 +104,7 @@ export default function RegisterPage() {
                     placeholder="Min. 6 characters"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-12 pr-12 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium"
-                    style={authStyles.inputBg}
+                    className="w-full pl-12 pr-12 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium"
                   />
                   <button
                     type="button"
@@ -153,8 +127,7 @@ export default function RegisterPage() {
                     placeholder="Repeat your password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full pl-12 pr-12 py-3.5 border border-gray-200 rounded-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-red-600 transition-all duration-200 font-medium"
-                    style={authStyles.inputBg}
+                    className="w-full pl-12 pr-12 py-3.5 bg-input border border-gray-200 rounded-form text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ember/20 focus:border-ember transition-all duration-200 font-medium"
                   />
                   <button
                     type="button"
@@ -173,8 +146,7 @@ export default function RegisterPage() {
                     type="checkbox"
                     checked={termsChecked}
                     onChange={(e) => setTermsChecked(e.target.checked)}
-                    className="w-[18px] h-[18px] border border-gray-300 rounded cursor-pointer"
-                    style={{ accentColor: '#BD2026' }}
+                    className="w-[18px] h-[18px] border border-gray-300 rounded cursor-pointer accent-ember"
                   />
                 </div>
 
@@ -192,10 +164,7 @@ export default function RegisterPage() {
 
               <button
                 type="submit"
-                className="w-full text-white py-3.5 rounded-[14px] font-semibold text-[15px] shadow-sm transition-all duration-200 mt-2"
-                style={{ backgroundColor: '#BD2026' }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#a61c22')}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#BD2026')}
+                className="w-full bg-gradient-ember text-white py-3.5 rounded-form font-semibold text-[15px] shadow-sm transition-all duration-200 mt-2"
               >
                 Create account
               </button>
@@ -212,8 +181,7 @@ export default function RegisterPage() {
                 Already have an account?
                 <Link
                   to="/login"
-                  className="font-bold hover:underline ml-1"
-                  style={{ color: '#BD2026' }}
+                  className="text-ember font-bold hover:underline ml-1"
                 >
                   Sign in
                 </Link>
