@@ -7,11 +7,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', to: 'https://home.akture.video' },
-    { label: 'Live', to: 'https://home.akture.video/livestreams', live: true },
-    { label: 'Pricing', to: 'https://home.akture.video/pricing' },
-    { label: 'About', to: 'https://home.akture.video/about' },
-    { label: 'FAQ', to: 'https://home.akture.video/faq' },
+    { label: 'Home', to: '/' },
+    { label: 'Live', to: '/livestreams', live: true },
+    { label: 'Pricing', to: '/pricing' },
+    { label: 'About', to: '/about' },
+    { label: 'FAQ', to: '/faq' },
   ];
 
   return (
@@ -23,11 +23,11 @@ export default function Header() {
       >
         <div className="flex items-center justify-between gap-4 h-16 px-6 w-full">
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-2 group">
+            <div className="flex items-center gap-2 group">
               <div className="relative w-12 h-10 flex items-center justify-center">
                 <LogoIcon className="group-hover:scale-105 transition-transform" />
               </div>
-            </Link>
+            </div>
 
             <button
               type="button"
