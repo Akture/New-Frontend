@@ -45,11 +45,11 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-6 inline-flex">
+            <div className="flex items-center gap-2 mb-6 inline-flex">
               <div className="relative w-10 h-7 flex items-center justify-center">
                 <LogoIcon />
               </div>
-            </Link>
+            </div>
 
             <p className="text-marble/50 text-sm leading-relaxed mb-8 max-w-sm">
               Experience sports like never before. Join the revolution in live sports streaming and share your passion with the world.

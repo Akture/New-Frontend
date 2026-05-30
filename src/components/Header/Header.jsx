@@ -9,8 +9,9 @@ export default function Header() {
   const navLinks = [
     { label: 'Home', to: '/' },
     { label: 'Live', to: '/livestreams', live: true },
-    { label: 'Pricing', to: 'https://akture.video/pricing' },
+    { label: 'Pricing', to: '/pricing' },
     { label: 'About', to: '/about' },
+    { label: 'FAQ', to: '/faq' },
   ];
 
   return (
@@ -22,11 +23,11 @@ export default function Header() {
       >
         <div className="flex items-center justify-between gap-4 h-16 px-6 w-full">
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-2 group">
+            <div className="flex items-center gap-2 group">
               <div className="relative w-12 h-10 flex items-center justify-center">
                 <LogoIcon className="group-hover:scale-105 transition-transform" />
               </div>
-            </Link>
+            </div>
 
             <button
               type="button"
@@ -70,13 +71,14 @@ export default function Header() {
               Log In
             </Link>
 
-            <Link
-              to="https://akture.video/explore"
-              className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4"
-              style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
+            <a
+              href="https://akture.video/explore"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-ember text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4 shadow-ember-sm"
             >
               Purchase
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -114,14 +116,15 @@ export default function Header() {
               Log In
             </Link>
 
-            <Link
-              to="https://akture.video/explore"
+            <a
+              href="https://akture.video/explore"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="bg-ember hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-center"
-              style={{ boxShadow: '0 0 15px rgba(189,32,38,0.4)' }}
+              className="bg-gradient-ember text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-center shadow-ember-sm"
             >
               Purchase
-            </Link>
+            </a>
           </nav>
         </div>
       </GlassPanel>

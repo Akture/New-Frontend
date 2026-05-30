@@ -86,11 +86,9 @@ export default function FeaturesSection() {
           </div>
 
           <div className="text-center mt-12">
-            <a href="https://akture.video/explore"
-              className="bg-ember hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all inline-block"
-            >
-            Start Capturing With Akture
-            </a>
+            <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
+              Start Training With Akture
+            </button>
           </div>
         </div>
       </div>

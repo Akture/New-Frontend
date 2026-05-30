@@ -37,7 +37,7 @@ export default function EmptyVideoGrid({ onBrowse }) {
 
         <button
           onClick={onBrowse}
-          className="bg-ember hover:bg-red-800 text-white px-8 py-3.5 rounded-lg font-bold text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2 hover:-translate-y-0.5 shadow-[0_10px_15px_-3px_rgba(189,32,38,0.3)] hover:shadow-[0_10px_15px_-3px_rgba(189,32,38,0.5)]"
+          className="bg-gradient-ember text-white px-8 py-3.5 rounded-lg font-bold text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2 hover:-translate-y-0.5 shadow-[0_10px_15px_-3px_rgba(189,32,38,0.3)] hover:shadow-[0_10px_15px_-3px_rgba(189,32,38,0.5)]"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path

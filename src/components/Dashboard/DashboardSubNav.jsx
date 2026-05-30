@@ -19,13 +19,9 @@ export default function DashboardSubNav({ activeSubNav, setActiveSubNav }) {
               onClick={() => setActiveSubNav(tab.key)}
               className={`whitespace-nowrap py-4 px-1 text-sm transition-colors border-b-2 ${
                 activeSubNav === tab.key
-                  ? 'font-bold'
+                  ? 'font-bold text-ember border-ember'
                   : 'font-medium text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white border-transparent'
               }`}
-              style={{
-                color: activeSubNav === tab.key ? '#BD2026' : undefined,
-                borderColor: activeSubNav === tab.key ? '#BD2026' : 'transparent',
-              }}
             >
               {tab.label}
             </button>

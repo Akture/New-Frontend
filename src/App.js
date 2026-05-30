@@ -9,18 +9,21 @@ import RegisterPage from './pages/RegisterPage';
 import PurchasedVideosPage from './pages/PurchasedVideosPage';
 import LivestreamsPage from './pages/LivestreamsPage';
 import PricingPage from './pages/PricingPage';
+import FAQPage from './pages/FAQPage';
 
 export default function App() {
   useEffect(() => {
-  const prefersDark = window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const mediaQuery =
+      typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+        ? window.matchMedia('(prefers-color-scheme: dark)')
+        : null;
 
-  if (prefersDark) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-}, []);
+    if (mediaQuery?.matches) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   return (
     <Router basename="/">
@@ -34,6 +37,7 @@ export default function App() {
           <Route path="/my-videos" element={<PurchasedVideosPage />} />
           <Route path="/livestreams" element={<LivestreamsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </div>
       <Analytics />

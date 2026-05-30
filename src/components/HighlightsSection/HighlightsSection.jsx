@@ -95,7 +95,7 @@ export default function HighlightsSection() {
                 />
                 <button
                   type="submit"
-                  className="rounded-full bg-ember px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-red-700"
+                  className="rounded-full bg-ember px-8 py-4 text-sm font-semibold text-white transition-all bg-gradient-ember"
                 >
                   Sign Up
                 </button>

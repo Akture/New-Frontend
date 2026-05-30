@@ -36,7 +36,7 @@ export default function FeedbackTab() {
             setFeedback('');
             setRating(0);
           }}
-          className="mt-6 px-6 py-2.5 rounded-lg font-semibold text-sm text-white transition-colors bg-ember hover:bg-red-800"
+          className="mt-6 px-6 py-2.5 rounded-lg font-semibold text-sm text-white transition-colors bg-gradient-ember"
         >
           Submit Another
         </button>
@@ -96,7 +96,7 @@ export default function FeedbackTab() {
         <button
           type="submit"
           disabled={!feedback.trim() || rating === 0}
-          className="self-start px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-ember hover:bg-red-800"
+          className="self-start px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-ember"
         >
           Submit Feedback
         </button>

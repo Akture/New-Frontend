@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function PricingHero() {
   return (
     <section className="px-6 md:px-12 py-20 text-center">
-      <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
+      <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
         Simple Pricing
       </p>
 
@@ -19,7 +19,7 @@ export default function PricingHero() {
       <div className="flex justify-center gap-4 mt-10">
         <Link
           to="/register"
-          className="bg-ember hover:bg-red-800 text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_10px_20px_-8px_rgba(189,32,38,0.6)]"
+          className="bg-gradient-ember text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_10px_20px_-8px_rgba(189,32,38,0.6)]"
         >
           Get Started Free →
         </Link>

@@ -1,5 +1,14 @@
-import { purchaseStyles } from './PurchaseStyles';
 import { timeOptions, dateOptions } from './PurchaseData';
+
+const selectStyle = {
+  WebkitAppearance: 'none',
+  MozAppearance: 'none',
+  appearance: 'none',
+  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'right 1rem center',
+  backgroundSize: '1.2em',
+};
 
 export default function PurchaseSearchForm({
   onSearch,
@@ -24,8 +33,8 @@ export default function PurchaseSearchForm({
             <select
               value={court}
               onChange={(e) => setCourt(e.target.value)}
-              style={purchaseStyles.selectAppearance}
-              className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#E63946]/30 focus:border-[#E63946] transition-all cursor-pointer hover:bg-gray-700"
+              style={selectStyle}
+              className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-700"
             >
               <option value="" disabled>
                 Select a court...
@@ -77,8 +86,8 @@ export default function PurchaseSearchForm({
               <select
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
-                style={purchaseStyles.selectAppearance}
-                className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl pl-14 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#E63946]/30 focus:border-[#E63946] transition-all cursor-pointer hover:bg-gray-700"
+                style={selectStyle}
+                className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl pl-14 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-700"
               >
                 {timeOptions.map((t) => (
                   <option key={t.value} value={t.value}>
@@ -98,8 +107,8 @@ export default function PurchaseSearchForm({
               <select
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}
-                style={purchaseStyles.selectAppearance}
-                className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl pl-12 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#E63946]/30 focus:border-[#E63946] transition-all cursor-pointer hover:bg-gray-700"
+                style={selectStyle}
+                className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl pl-12 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-700"
               >
                 {timeOptions.map((t) => (
                   <option key={t.value} value={t.value}>
@@ -115,7 +124,7 @@ export default function PurchaseSearchForm({
           <button
             type="button"
             onClick={onSearch}
-            className="w-full bg-[#E63946] hover:bg-[#C1121F] text-white font-black text-lg py-4 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-[0_8px_16px_-6px_rgba(230,57,70,0.4)] uppercase tracking-wide flex justify-center items-center gap-2"
+            className="w-full bg-gradient-ember text-white font-black text-lg py-4 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-[0_8px_16px_-6px_rgba(189,32,38,0.4)] uppercase tracking-wide flex justify-center items-center gap-2"
           >
             <i className="ph-bold ph-magnifying-glass text-xl"></i>
             Find Videos

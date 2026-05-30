@@ -13,14 +13,14 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px] opacity-70" />
 
           <div className="relative z-10 max-w-5xl mx-auto">
-            <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
+            <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
               About Akture
             </p>
 
             <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
               Built for Athletes.
               <br />
-              <span className="text-ember">Designed for Moments.</span>
+              <span className="text-gradient-ember">Designed for Moments.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -33,7 +33,7 @@ export default function AboutPage() {
         <section className="px-6 md:px-12 py-20 border-y border-white/10 bg-black/40">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
+              <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
                 Our Mission
               </p>
 
@@ -54,7 +54,7 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 shadow-2xl shadow-black/40">
-              <div className="text-5xl mb-6">🎯</div>
+              <div className="text-5xl mb-6"><i className="ph ph-crosshair"></i></div>
               <h3 className="font-heading text-2xl font-black text-white mb-3">
                 Our Vision
               </h3>
@@ -68,7 +68,7 @@ export default function AboutPage() {
 
         <section className="px-6 md:px-12 py-24">
           <div className="max-w-7xl mx-auto text-center">
-            <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
+            <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
               The Team
             </p>
 
@@ -79,19 +79,19 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  icon: '👨‍💼',
+                  icon: 'ph ph-briefcase',
                   title: 'Leadership Team',
                   text: 'Experienced entrepreneurs and sports enthusiasts driving the vision forward.',
                   color: 'bg-ember',
                 },
                 {
-                  icon: '👨‍💻',
+                  icon: 'ph ph-code',
                   title: 'Engineering Team',
                   text: 'Developers building the capture, playback, and performance tools behind Akture.',
                   color: 'bg-slate',
                 },
                 {
-                  icon: '🏆',
+                  icon: 'ph ph-trophy',
                   title: 'Sports Advisors',
                   text: 'Athletes and coaches helping shape the product around real training needs.',
                   color: 'bg-emerald',
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 text-left hover:border-ember/60 transition-all"
                 >
                   <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center text-3xl mb-6`}>
-                    {item.icon}
+                    <i className={item.icon}></i>
                   </div>
 
                   <h3 className="font-heading text-xl font-black text-white mb-3">

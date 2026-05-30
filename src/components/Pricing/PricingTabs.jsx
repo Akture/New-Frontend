@@ -4,13 +4,13 @@ export default function PricingTabs({ activeTab, setActiveTab }) {
       id: 'pay-per-video',
       title: 'Pay-Per-Video',
       subtitle: 'No subscription',
-      icon: '🎥',
+      icon: 'ph ph-video-camera',
     },
     {
       id: 'subscriptions',
       title: 'Subscriptions',
       subtitle: 'Monthly plans',
-      icon: '📦',
+      icon: 'ph ph-package',
     },
   ];
 
@@ -30,7 +30,7 @@ export default function PricingTabs({ activeTab, setActiveTab }) {
                   : 'border-transparent text-gray-400 hover:text-onyx dark:hover:text-white'
               }`}
             >
-              <span>{tab.icon}</span>
+              <i className={tab.icon}></i>
               <span className="text-left">
                 <span className="block font-black text-sm">{tab.title}</span>
                 <span className="block text-xs font-medium">{tab.subtitle}</span>
