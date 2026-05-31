@@ -18,9 +18,9 @@ export default function Footer() {
   ];
 
   const companyLinks = [
-    { label: 'About Us', path: '/about' },
+    { label: 'About Us', path: 'https://home.akture.video/about' },
     { label: 'Careers', path: 'mailto:contact@akture.video?subject=Interested%20in%20joining%20the%20Akture%20team' },
-    { label: 'Contact', path: '/mailto:contact@akture.video?subject=Contacting%20Akture'},
+    { label: 'Contact', path: '/mailto:contact@akture.video?subject=Contacting%20Akture' },
   ];
 
   const legalLinks = [
