@@ -79,7 +79,9 @@ export default function FacilitySection() {
 
           <div className="text-center mt-12">
             <p className="text-marble/60 mb-6 text-lg">Get Started with Akture Today</p>
-            <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
+            <a
+  href="https://akture.video/login"
+              className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
               Get in Touch
             </button>
           </div>
