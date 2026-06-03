@@ -31,7 +31,7 @@ export default function Header() {
 
             <button
               type="button"
-              className="md:hidden p-2 rounded-full border border-white/10 text-marble/80 hover:text-marble hover:border-ember transition-colors"
+              className="md:hidden p-2 rounded-full border border-gray-300 dark:border-white/10 text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble hover:border-ember transition-colors"
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
@@ -47,7 +47,7 @@ export default function Header() {
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-sm font-medium text-marble/80 hover:text-marble transition-colors flex items-center gap-1"
+                className="text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors flex items-center gap-1"
               >
                 {link.label}
                 {link.live && (
@@ -66,7 +66,7 @@ export default function Header() {
           <div className={`items-center gap-4 ${mobileOpen ? 'hidden' : 'flex'}`}>
             <Link
               to="https://akture.video/login"
-              className="hidden lg:block text-sm font-medium text-marble/80 hover:text-marble transition-colors"
+              className="hidden lg:block text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors"
             >
               Log In
             </Link>
@@ -87,13 +87,13 @@ export default function Header() {
             mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <nav className="flex flex-col gap-4 px-6 pb-6 border-t border-white/10 pt-4 w-full">
+          <nav className="flex flex-col gap-4 px-6 pb-6 border-t border-gray-200 dark:border-white/10 pt-4 w-full">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm font-medium text-marble/80 hover:text-marble transition-colors flex items-center gap-1"
+                className="text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors flex items-center gap-1"
               >
                 {link.label}
                 {link.live && (
@@ -111,7 +111,7 @@ export default function Header() {
             <Link
               to="https://akture.video/login"
               onClick={() => setMobileOpen(false)}
-              className="text-sm font-medium text-marble/80 hover:text-marble transition-colors"
+              className="text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors"
             >
               Log In
             </Link>

@@ -56,7 +56,7 @@ export default function NewsletterCalloutSection() {
   };
 
   return (
-    <section className="py-24 bg-black relative">
+    <section className="py-24 bg-gray-50 dark:bg-black relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mt-20">
           <div className="max-w-3xl mx-auto text-center mb-12">
@@ -67,7 +67,7 @@ export default function NewsletterCalloutSection() {
               Get the Most Out of Your Akture Experience
             </h2>
 
-            <p className="text-marble/60 text-lg">
+            <p className="text-gray-500 dark:text-marble/60 text-lg">
               Subscribe to Akture's monthly newsletter to stay up-to-date on all the action, see highlights of users and facilities, and get early notice of exclusive opportunities.
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function NewsletterCalloutSection() {
                   {item.title}
                 </h3>
 
-                <p className="text-marble/80 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-marble/80 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -95,7 +95,7 @@ export default function NewsletterCalloutSection() {
           <div className="mt-12 max-w-3xl mx-auto">
             <form
               onSubmit={handleSubmit}
-              className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8"
+              className="rounded-[2rem] border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 p-6 md:p-8"
             >
               <div className="flex flex-col gap-4 md:flex-row md:items-center">
                 <input
@@ -104,7 +104,7 @@ export default function NewsletterCalloutSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 rounded-full border border-white/10 bg-black/70 px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-ember/50"
+                  className="flex-1 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-black/70 px-6 py-4 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-ember/50"
                 />
 
                 <button
@@ -116,7 +116,7 @@ export default function NewsletterCalloutSection() {
               </div>
 
               {status && (
-                <p className="mt-4 text-center text-sm text-marble/70">
+                <p className="mt-4 text-center text-sm text-gray-500 dark:text-marble/70">
                   {status}
                 </p>
               )}

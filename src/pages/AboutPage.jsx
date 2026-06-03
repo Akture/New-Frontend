@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-onyx text-marble overflow-x-hidden">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-onyx dark:text-marble overflow-x-hidden">
       <Banner />
       <Header />
 
@@ -17,27 +17,27 @@ export default function AboutPage() {
               About Akture
             </p>
 
-            <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
+            <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
               Built for Athletes.
               <br />
               <span className="text-gradient-ember">Designed for Moments.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Akture is revolutionizing sports performance through cutting-edge video capture technology,
               making professional-grade analysis and memories accessible to every athlete.
             </p>
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-20 border-y border-white/10 bg-black/40">
+        <section className="px-6 md:px-12 py-20 border-y border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/40">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
                 Our Mission
               </p>
 
-              <h2 className="font-heading text-4xl md:text-5xl font-black text-white mb-6">
+              <h2 className="font-heading text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
                 Give every athlete access to elite tools.
               </h2>
 
@@ -47,18 +47,18 @@ export default function AboutPage() {
                 review, improve, and share their best moments.
               </p>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
                 From youth sports to competitive programs, we’re helping teams and players unlock better
                 training, better memories, and better performance.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 shadow-2xl shadow-black/40">
+            <div className="rounded-3xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] backdrop-blur-md p-8 shadow-sm dark:shadow-2xl dark:shadow-black/40">
               <div className="text-5xl mb-6"><i className="ph ph-crosshair"></i></div>
-              <h3 className="font-heading text-2xl font-black text-white mb-3">
+              <h3 className="font-heading text-2xl font-black text-gray-900 dark:text-white mb-3">
                 Our Vision
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
                 A world where every athlete has the tools to reach their full potential, regardless of
                 location, budget, or experience level.
               </p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
               The Team
             </p>
 
-            <h2 className="font-heading text-4xl md:text-5xl font-black text-white mb-14">
+            <h2 className="font-heading text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-14">
               Built by people who love sport and technology.
             </h2>
 
@@ -99,17 +99,17 @@ export default function AboutPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 text-left hover:border-ember/60 transition-all"
+                  className="rounded-3xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.03] backdrop-blur-md p-8 text-left hover:border-ember/60 transition-all"
                 >
                   <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center text-3xl mb-6`}>
                     <i className={item.icon}></i>
                   </div>
 
-                  <h3 className="font-heading text-xl font-black text-white mb-3">
+                  <h3 className="font-heading text-xl font-black text-gray-900 dark:text-white mb-3">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
                     {item.text}
                   </p>
                 </div>
