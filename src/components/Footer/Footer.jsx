@@ -10,11 +10,11 @@ export default function Footer() {
   ];
 
   const policyLinks = [
-    { label: 'Privacy Policy', path: 'https://akture.video/privacy-policy' },
-    { label: 'Cookie Policy', path: 'https://akture.video/cookie-policy' },
-    { label: 'Terms of Service', path: 'https://akture.video/terms-of-service' },
-    { label: 'Return Policy', path: 'https://akture.video/return-policy' },
-    { label: 'Disclaimer', path: 'https://akture.video/disclaimer' },
+    { label: 'Privacy Policy', path: '/privacy-policy' },
+    { label: 'Cookie Policy', path: '/cookie-policy' },
+    { label: 'Terms of Service', path: '/terms-of-service' },
+    { label: 'Return Policy', path: '/return-policy' },
+    { label: 'Disclaimer', path: '/disclaimer' },
   ];
 
   const companyLinks = [
@@ -24,9 +24,9 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', path: 'https://akture.video/privacy-policy' },
-    { label: 'Terms of Service', path: 'https://akture.video/terms-of-service' },
-    { label: 'Cookie Settings', path: 'https://akture.video/cookie-policy' },
+    { label: 'Privacy Policy', path: '/privacy-policy' },
+    { label: 'Terms of Service', path: '/terms-of-service' },
+    { label: 'Cookie Settings', path: '/cookie-policy' },
   ];
 
   return (
@@ -89,7 +89,11 @@ export default function Footer() {
             <ul className="space-y-4">
               {policyLinks.map((item, i) => (
                 <li key={i}>
-                  <a href={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</a>
+                  {item.path.startsWith('/') ? (
+                    <Link to={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</Link>
+                  ) : (
+                    <a href={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -115,7 +119,11 @@ export default function Footer() {
           <p className="text-gray-400 dark:text-marble/40 text-xs">© 2026 Akture Inc. All rights reserved.</p>
           <div className="flex gap-6 text-xs text-gray-400 dark:text-marble/40">
             {legalLinks.map((item, i) => (
-              <a key={i} href={item.path} className="hover:text-white transition-colors">{item.label}</a>
+              item.path.startsWith('/') ? (
+                <Link key={i} to={item.path} className="hover:text-white transition-colors">{item.label}</Link>
+              ) : (
+                <a key={i} href={item.path} className="hover:text-white transition-colors">{item.label}</a>
+              )
             ))}
           </div>
         </div>
