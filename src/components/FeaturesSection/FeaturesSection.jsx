@@ -1,5 +1,3 @@
-import GlassPanel from '../GlassPanel/GlassPanel';
-
 export default function FeaturesSection() {
   const features = [
     {
@@ -88,7 +86,7 @@ export default function FeaturesSection() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-ember hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all">
+            <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
               Start Training With Akture
             </button>
           </div>

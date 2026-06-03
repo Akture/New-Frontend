@@ -40,7 +40,9 @@ export default function NewsletterSection() {
         </p>
 
         {submitted ? (
-          <div className="text-emerald text-lg font-semibold py-4">🎉 You're subscribed! Thanks for joining.</div>
+          <div className="text-emerald text-lg font-semibold py-4 flex items-center justify-center gap-2">
+            <i className="ph ph-check-circle text-2xl"></i> You're subscribed! Thanks for joining.
+          </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
             <input
@@ -51,17 +53,12 @@ export default function NewsletterSection() {
                 setError('');
               }}
               placeholder="Enter your email address"
-              className="flex-1 rounded-full px-6 py-4 text-white placeholder-white/40 focus:outline-none transition-colors"
-              style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: error ? '1px solid #BD2026' : '1px solid rgba(255,255,255,0.1)',
-              }}
+              className={`flex-1 rounded-full px-6 py-4 bg-white/5 text-white placeholder-white/40 focus:outline-none transition-colors ${error ? 'border border-ember' : 'border border-white/10'}`}
               required
             />
             <button
               type="submit"
-              className="bg-ember hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold transition-all whitespace-nowrap"
-              style={{ boxShadow: '0 0 15px rgba(189,32,38,0.2)' }}
+              className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all whitespace-nowrap shadow-[0_0_15px_rgba(189,32,38,0.2)]"
             >
               Subscribe Now
             </button>
