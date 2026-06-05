@@ -1,9 +1,9 @@
 import './Banner.css';
 
 const tickerMessages = [
-  'NEW FEATURE: Event Livestreams - Site managers, owners, and coaches can stream from any akture-enabled site',
-  'COMING SOON: Subscriptions and Bundles - conveniently access more footage and more storage',
-  'COACHES - record and review in-game footage with no setup overhead!',
+  'WELCOME TO AKTURE',
+  'Tag us in your highlights @akture.video for a secret gift',
+  'Let us know where you want to see Akture next',
 ];
 
 export default function Banner() {

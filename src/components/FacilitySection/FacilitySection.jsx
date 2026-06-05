@@ -27,7 +27,7 @@ export default function FacilitySection() {
   ];
 
   return (
-    <section className="py-24 bg-onyx relative overflow-hidden">
+    <section className="py-24 bg-gray-50 dark:bg-onyx relative overflow-hidden">
       <div
         className="absolute top-0 right-0 rounded-full pointer-events-none"
         style={{
@@ -54,7 +54,7 @@ export default function FacilitySection() {
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 tracking-tight" style={{ fontFamily: 'Outfit, sans-serif' }}>
             Get the Most Out of Your Facility with Akture
           </h2>
-          <p className="text-marble/60 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-500 dark:text-marble/60 max-w-2xl mx-auto text-lg">
             Join forward-thinking owners everywhere who are maximizing visibility and delivering exceptional experiences to their athletes and fans.
           </p>
         </div>
@@ -72,14 +72,14 @@ export default function FacilitySection() {
                 <h3 className="font-heading text-xl font-semibold mb-3" style={{ fontFamily: 'Outfit, sans-serif' }}>
                   {facility.title}
                 </h3>
-                <p className="text-marble/60 text-sm leading-relaxed">{facility.desc}</p>
+                <p className="text-gray-500 dark:text-marble/60 text-sm leading-relaxed">{facility.desc}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-marble/60 mb-6 text-lg">Get Started with Akture Today</p>
-            <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
+            <p className="text-gray-500 dark:text-marble/60 mb-6 text-lg">Get Started with Akture Today</p>
+              <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
               Get in Touch
             </button>
           </div>

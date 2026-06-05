@@ -1,7 +1,7 @@
 export default function PurchaseVideoCard({ match, onAdd, addedToCart }) {
     return (
-      <div className="bg-surface rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-800 hover:shadow-[0_0_20px_rgba(189,32,38,0.2)] transition-all duration-300 group flex flex-col">
-        <div className="relative aspect-video bg-gray-900 overflow-hidden">
+      <div className="bg-white dark:bg-surface rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-200 dark:border-gray-800 hover:shadow-[0_0_20px_rgba(189,32,38,0.2)] transition-all duration-300 group flex flex-col">
+        <div className="relative aspect-video bg-gray-200 dark:bg-gray-900 overflow-hidden">
           <div className={`absolute inset-0 ${match.gradientDir} ${match.gradient}`}></div>
   
           <div className="absolute inset-0 bg-[#0F172A]/20 group-hover:bg-[#0F172A]/40 transition-colors duration-300 flex items-center justify-center">
@@ -31,23 +31,23 @@ export default function PurchaseVideoCard({ match, onAdd, addedToCart }) {
         </div>
   
         <div className="p-5 flex-1 flex flex-col">
-          <h3 className="font-extrabold text-base text-white leading-tight mb-2 group-hover:text-ember transition-colors line-clamp-2">
+          <h3 className="font-extrabold text-base text-gray-900 dark:text-white leading-tight mb-2 group-hover:text-ember transition-colors line-clamp-2">
             {match.title}
           </h3>
   
-          <p className="text-xs font-semibold text-gray-400 mb-4 flex items-center gap-1.5">
+          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-1.5">
             <i className="ph-bold ph-calendar-blank"></i> {match.time}
           </p>
   
-          <div className="mt-auto pt-4 border-t border-gray-800 flex justify-between items-center">
-            <div className="text-xl font-black text-white">{match.price}</div>
+          <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center">
+            <div className="text-xl font-black text-gray-900 dark:text-white">{match.price}</div>
   
             <button
               onClick={() => onAdd(match.id)}
               className={`${
                 addedToCart
                   ? 'bg-ember text-white'
-                  : 'bg-gray-800 text-white hover:bg-ember hover:text-white'
+                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white hover:bg-ember hover:text-white'
               } font-bold py-2 px-4 rounded-lg transition-colors text-xs uppercase tracking-wider flex items-center gap-1.5`}
             >
               <i className={`ph-bold ${addedToCart ? 'ph-check' : 'ph-shopping-cart-simple'} text-sm`}></i>

@@ -43,7 +43,7 @@ export default function PurchasePage() {
   const displayedMatches = sortedMatches.slice(0, visibleCount);
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col relative overflow-x-hidden">
+    <div className="bg-gray-50 dark:bg-black text-gray-900 dark:text-white min-h-screen flex flex-col relative overflow-x-hidden">
       <Banner />
       <Header />
 
@@ -90,7 +90,7 @@ export default function PurchasePage() {
                 <div className="mt-10 flex justify-center">
                   <button
                     onClick={handleLoadMore}
-                    className="bg-surface border-2 border-gray-700 text-white hover:border-ember hover:text-ember font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-widest text-xs flex items-center gap-2"
+                    className="bg-white dark:bg-surface border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-white hover:border-ember hover:text-ember font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-widest text-xs flex items-center gap-2"
                   >
                     <i className="ph-bold ph-arrows-clockwise"></i> Load More
                   </button>

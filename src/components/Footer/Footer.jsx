@@ -10,27 +10,27 @@ export default function Footer() {
   ];
 
   const policyLinks = [
-    { label: 'Privacy Policy', path: 'https://akture.video/privacy-policy' },
-    { label: 'Cookie Policy', path: 'https://akture.video/cookie-policy' },
-    { label: 'Terms of Service', path: 'https://akture.video/terms-of-service' },
-    { label: 'Return Policy', path: 'https://akture.video/return-policy' },
-    { label: 'Disclaimer', path: 'https://akture.video/disclaimer' },
+    { label: 'Privacy Policy', path: '/privacy-policy' },
+    { label: 'Cookie Policy', path: '/cookie-policy' },
+    { label: 'Terms of Service', path: '/terms-of-service' },
+    { label: 'Return Policy', path: '/return-policy' },
+    { label: 'Disclaimer', path: '/disclaimer' },
   ];
 
   const companyLinks = [
     { label: 'About Us', path: '/about' },
     { label: 'Careers', path: 'mailto:contact@akture.video?subject=Interested%20in%20joining%20the%20Akture%20team' },
-    { label: 'Contact', path: '/mailto:contact@akture.video?subject=Contacting%20Akture'},
+    { label: 'Contact', path: 'mailto:contact@akture.video?subject=Contacting%20Akture' },
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', path: 'https://akture.video/privacy-policy' },
-    { label: 'Terms of Service', path: 'https://akture.video/terms-of-service' },
-    { label: 'Cookie Settings', path: 'https://akture.video/cookie-policy' },
+    { label: 'Privacy Policy', path: '/privacy-policy' },
+    { label: 'Terms of Service', path: '/terms-of-service' },
+    { label: 'Cookie Settings', path: '/cookie-policy' },
   ];
 
   return (
-    <footer className="bg-onyx pt-20 pb-10">
+    <footer className="bg-gray-100 dark:bg-onyx pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* <div className="mb-12 text-center">
           <p className="text-marble/60 text-sm mb-2">
@@ -51,7 +51,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-marble/50 text-sm leading-relaxed mb-8 max-w-sm">
+            <p className="text-gray-500 dark:text-marble/50 text-sm leading-relaxed mb-8 max-w-sm">
               Experience sports like never before. Join the revolution in live sports streaming and share your passion with the world.
             </p>
 
@@ -65,8 +65,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-colors text-white/70 hover:text-white hover:bg-ember"
-                  style={{ background: 'rgba(255,255,255,0.05)' }}
+                  className="w-10 h-10 rounded-full flex items-center justify-center transition-colors bg-gray-200 dark:bg-white/5 text-gray-500 dark:text-white/70 hover:text-white hover:bg-ember"
                 >
                   <i className={`${item.icon} text-lg`}></i>
                 </a>
@@ -75,36 +74,40 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-sm">Explore</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Explore</h4>
             <ul className="space-y-4">
               {exploreLinks.map((item, i) => (
                 <li key={i}>
-                  <Link to={item.path} className="text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</Link>
+                  <Link to={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-sm">Policies</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Policies</h4>
             <ul className="space-y-4">
               {policyLinks.map((item, i) => (
                 <li key={i}>
-                  <a href={item.path} className="text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</a>
+                  {item.path.startsWith('/') ? (
+                    <Link to={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</Link>
+                  ) : (
+                    <a href={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</a>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-sm">Company</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Company</h4>
             <ul className="space-y-4">
               {companyLinks.map((item, i) => (
                 <li key={i}>
                   {item.path.startsWith('mailto') ? (
-                    <a href={item.path} className="text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</a>
+                    <a href={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</a>
                   ) : (
-                    <Link to={item.path} className="text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</Link>
+                    <Link to={item.path} className="text-gray-500 dark:text-marble/60 hover:text-ember transition-colors text-sm">{item.label}</Link>
                   )}
                 </li>
               ))}
@@ -112,11 +115,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-marble/40 text-xs">© 2026 Akture Inc. All rights reserved.</p>
-          <div className="flex gap-6 text-xs text-marble/40">
+        <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 dark:text-marble/40 text-xs">© 2026 Akture Inc. All rights reserved.</p>
+          <div className="flex gap-6 text-xs text-gray-400 dark:text-marble/40">
             {legalLinks.map((item, i) => (
-              <a key={i} href={item.path} className="hover:text-white transition-colors">{item.label}</a>
+              item.path.startsWith('/') ? (
+                <Link key={i} to={item.path} className="hover:text-white transition-colors">{item.label}</Link>
+              ) : (
+                <a key={i} href={item.path} className="hover:text-white transition-colors">{item.label}</a>
+              )
             ))}
           </div>
         </div>

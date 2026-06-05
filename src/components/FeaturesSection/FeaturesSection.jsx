@@ -35,7 +35,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="py-24 bg-onyx relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-onyx relative overflow-hidden">
       <div
         className="absolute top-0 right-0 rounded-full pointer-events-none"
         style={{
@@ -62,7 +62,7 @@ export default function FeaturesSection() {
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 tracking-tight" style={{ fontFamily: 'Outfit, sans-serif' }}>
             Why Athletes Choose Akture
           </h2>
-          <p className="text-marble/60 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-500 dark:text-marble/60 max-w-2xl mx-auto text-lg">
             The ultimate ecosystem built for performance, analysis, and broadcasting your journey to greatness.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function FeaturesSection() {
                 <h3 className="font-heading text-xl font-semibold mb-3" style={{ fontFamily: 'Outfit, sans-serif' }}>
                   {feature.title}
                 </h3>
-                <p className="text-marble/60 text-sm leading-relaxed">{feature.desc}</p>
+                <p className="text-gray-500 dark:text-marble/60 text-sm leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>

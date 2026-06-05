@@ -2,13 +2,13 @@ import { videoCards } from '../../data/videoCards';
 
 export default function VideoSection() {
   return (
-    <section className="py-24 bg-black relative border-t border-white/5">
+    <section className="py-24 bg-white dark:bg-black relative border-t border-gray-200 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-12 text-center">
           <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ fontFamily: 'Outfit, sans-serif' }}>
             See Akture in Action
           </h2>
-          <p className="text-marble/60 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-500 dark:text-marble/60 max-w-2xl mx-auto text-lg">
             Preview the quality, simplicity, and connection of Akture
           </p>
         </div>
@@ -20,7 +20,7 @@ export default function VideoSection() {
               href={card.url}
               target="_blank"
               rel="noreferrer"
-              className="group relative rounded-2xl overflow-hidden block bg-gray-900 border border-white/5"
+              className="group relative rounded-2xl overflow-hidden block bg-gray-200 dark:bg-gray-900 border border-gray-200 dark:border-white/5"
               style={{ aspectRatio: '16/9' }}
             >
               <img
@@ -40,7 +40,7 @@ export default function VideoSection() {
                 <h3 className="font-heading font-semibold text-2xl text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>
                   {card.title}
                 </h3>
-                <p className="text-marble/60 text-sm leading-relaxed">{card.subtitle}</p>
+                <p className="text-gray-500 dark:text-marble/60 text-sm leading-relaxed">{card.subtitle}</p>
               </div>
             </a>
           ))}
