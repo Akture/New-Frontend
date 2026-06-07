@@ -22,19 +22,19 @@ export default function PurchaseSearchForm({
   setEndTime,
 }) {
   return (
-    <div className="bg-[#111827] rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-800 p-6 md:p-8 mb-16 mx-auto max-w-4xl relative overflow-hidden">
+    <div className="bg-white dark:bg-[#111827] rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.15)] dark:shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-200 dark:border-gray-800 p-6 md:p-8 mb-16 mx-auto max-w-4xl relative overflow-hidden">
       <form className="flex flex-col gap-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <i className="ph-bold ph-map-pin text-white"></i> Court Location
+            <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+              <i className="ph-bold ph-map-pin text-gray-600 dark:text-white"></i> Court Location
             </label>
 
             <select
               value={court}
               onChange={(e) => setCourt(e.target.value)}
               style={selectStyle}
-              className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-700"
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-semibold text-base rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <option value="" disabled>
                 Select a court...
@@ -49,11 +49,11 @@ export default function PurchaseSearchForm({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <i className="ph-bold ph-calendar-blank text-white"></i> Date
+            <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+              <i className="ph-bold ph-calendar-blank text-gray-600 dark:text-white"></i> Date
             </label>
 
-            <div className="flex bg-gray-800 p-1 rounded-xl border border-gray-700">
+            <div className="flex bg-gray-100 dark:bg-gray-800 p-1 rounded-xl border border-gray-200 dark:border-gray-700">
               {dateOptions.map((d) => (
                 <button
                   key={d}
@@ -61,8 +61,8 @@ export default function PurchaseSearchForm({
                   onClick={() => setDate(d)}
                   className={`flex-1 py-2.5 text-sm rounded-lg transition-all focus:outline-none ${
                     date === d
-                      ? 'font-bold bg-[#0F172A] text-white shadow-sm'
-                      : 'font-semibold text-gray-400 hover:text-white'
+                      ? 'font-bold bg-white dark:bg-[#0F172A] text-gray-900 dark:text-white shadow-sm'
+                      : 'font-semibold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {d}
@@ -74,12 +74,12 @@ export default function PurchaseSearchForm({
 
         <div>
           <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-            <i className="ph-bold ph-clock text-white"></i> Time Range
+            <i className="ph-bold ph-clock text-gray-600 dark:text-white"></i> Time Range
           </label>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="w-full relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400 uppercase">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">
                 Start
               </span>
 
@@ -87,7 +87,7 @@ export default function PurchaseSearchForm({
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
                 style={selectStyle}
-                className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl pl-14 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-700"
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-semibold text-base rounded-xl pl-14 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 {timeOptions.map((t) => (
                   <option key={t.value} value={t.value}>
@@ -100,7 +100,7 @@ export default function PurchaseSearchForm({
             <i className="ph-bold ph-arrow-right text-gray-400 hidden sm:block"></i>
 
             <div className="w-full relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400 uppercase">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">
                 End
               </span>
 
@@ -108,7 +108,7 @@ export default function PurchaseSearchForm({
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}
                 style={selectStyle}
-                className="w-full bg-gray-800 border border-gray-700 text-white font-semibold text-base rounded-xl pl-12 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-700"
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-semibold text-base rounded-xl pl-12 pr-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition-all cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 {timeOptions.map((t) => (
                   <option key={t.value} value={t.value}>

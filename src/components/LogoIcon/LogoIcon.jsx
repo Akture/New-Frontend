@@ -6,7 +6,12 @@ export default function LogoIcon({ className = '', to = '/' }) {
       <img
         src="/akture-logo-with-text.png"
         alt="Akture Logo"
-        className={`w-full h-full object-contain ${className}`}
+        className={`w-full h-full object-contain hidden dark:block ${className}`}
+      />
+      <img
+        src="/Akture%20Logo_black.png"
+        alt="Akture Logo"
+        className={`w-full h-full object-contain block dark:hidden ${className}`}
       />
     </Link>
   );

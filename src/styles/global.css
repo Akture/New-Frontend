@@ -15,11 +15,16 @@ body,
 }
 
 body {
-  background-color: var(--color-onyx);
-  color: var(--color-marble);
+  background-color: #ffffff;
+  color: #010101;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark body {
+  background-color: var(--color-onyx);
+  color: var(--color-marble);
 }
 
 a {
@@ -67,6 +72,11 @@ img {
 }
 
 .bg-dot-pattern {
+  background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+html.dark .bg-dot-pattern {
   background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }

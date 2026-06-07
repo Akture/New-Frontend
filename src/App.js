@@ -10,6 +10,11 @@ import PurchasedVideosPage from './pages/PurchasedVideosPage';
 import LivestreamsPage from './pages/LivestreamsPage';
 import PricingPage from './pages/PricingPage';
 import FAQPage from './pages/FAQPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import ReturnPolicyPage from './pages/ReturnPolicyPage';
+import DisclaimerPage from './pages/DisclaimerPage';
+import CookiePolicyPage from './pages/CookiePolicyPage';
 
 export default function App() {
   useEffect(() => {
@@ -38,6 +43,11 @@ export default function App() {
           <Route path="/livestreams" element={<LivestreamsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="/return-policy" element={<ReturnPolicyPage />} />
+          <Route path="/disclaimer" element={<DisclaimerPage />} />
+          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
         </Routes>
       </div>
       <Analytics />

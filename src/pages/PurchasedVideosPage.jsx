@@ -21,7 +21,7 @@ export default function PurchasedVideosPage() {
         return (
           <>
             <div className="flex flex-col items-center text-center gap-4">
-              <h1 className="text-4xl font-extrabold text-white tracking-tight">
+              <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                 My Purchased Videos
               </h1>
 
@@ -48,10 +48,10 @@ export default function PurchasedVideosPage() {
         return (
           <>
             <div className="flex flex-col items-center text-center gap-4">
-              <h1 className="text-4xl font-extrabold text-white tracking-tight">
+              <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                 Leave Feedback
               </h1>
-              <p className="text-gray-400 max-w-md">
+              <p className="text-gray-500 dark:text-gray-400 max-w-md">
                 Share your experience and help us improve Akture for everyone.
               </p>
             </div>
@@ -64,10 +64,10 @@ export default function PurchasedVideosPage() {
         return (
           <>
             <div className="flex flex-col items-center text-center gap-4">
-              <h1 className="text-4xl font-extrabold text-white tracking-tight">
+              <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                 My Subscription
               </h1>
-              <p className="text-gray-400 max-w-md">
+              <p className="text-gray-500 dark:text-gray-400 max-w-md">
                 Manage your plan and unlock more features.
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function PurchasedVideosPage() {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col relative overflow-x-hidden">
+    <div className="bg-gray-50 dark:bg-black text-gray-900 dark:text-white min-h-screen flex flex-col relative overflow-x-hidden">
       <Banner />
       <Header />
 
