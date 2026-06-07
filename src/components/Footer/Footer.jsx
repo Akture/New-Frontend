@@ -6,7 +6,6 @@ export default function Footer() {
     { label: 'Home', path: '/' },
     { label: 'Purchase', path: 'https://akture.video/explore' },
     { label: 'Pricing', path: 'https://akture.video/pricing' },
-    { label: 'Contact', path: 'https://akture.video/contact' },
   ];
 
   const policyLinks = [
@@ -20,7 +19,7 @@ export default function Footer() {
   const companyLinks = [
     { label: 'About Us', path: '/about' },
     { label: 'Careers', path: 'mailto:contact@akture.video?subject=Interested%20in%20joining%20the%20Akture%20team' },
-    { label: 'Contact', path: 'mailto:contact@akture.video?subject=Contacting%20Akture' },
+    { label: 'Contact', path: 'https://akture.video/contact' },
   ];
 
   const legalLinks = [
