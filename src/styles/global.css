@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-onyx: #010101;
+  --color-marble: #FFFFFF;
+  --color-ember: #BD2026;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -15,8 +21,8 @@ body,
 }
 
 body {
-  background-color: #ffffff;
-  color: #010101;
+  background-color: var(--color-marble);
+  color: var(--color-onyx);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

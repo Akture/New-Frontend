@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import PurchasePage from './pages/PurchasePage';
@@ -33,6 +34,7 @@ export default function App() {
   return (
     <Router basename="/">
       <div className="min-h-screen bg-marble text-onyx dark:bg-onyx dark:text-marble">
+          <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
