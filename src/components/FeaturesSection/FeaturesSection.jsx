@@ -87,7 +87,7 @@ export default function FeaturesSection() {
 
           <div className="text-center mt-12">
             <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
-              Start Training With Akture
+              Start Capturing With Akture
             </button>
           </div>
         </div>
