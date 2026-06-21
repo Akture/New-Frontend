@@ -72,7 +72,6 @@ export default function Header() {
 
             <a
               href="https://akture.video/explore"
-              target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-ember text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4 shadow-ember-sm"
             >
