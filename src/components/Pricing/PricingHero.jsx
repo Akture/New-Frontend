@@ -18,17 +18,17 @@ export default function PricingHero() {
 
       <div className="flex justify-center gap-4 mt-10">
         <Link
-          to="/register"
+          to="https://akture.video/register"
           className="bg-gradient-ember text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_10px_20px_-8px_rgba(189,32,38,0.6)]"
         >
           Get Started Free →
         </Link>
 
         <Link
-          to="/login"
+          to="https://akture.video/login"
           className="bg-white text-onyx border border-gray-200 hover:border-ember hover:text-ember dark:bg-[#111827] dark:text-white dark:border-white/10 px-8 py-4 rounded-full font-bold transition-all"
         >
-          Sign In
+          Login
         </Link>
       </div>
     </section>
