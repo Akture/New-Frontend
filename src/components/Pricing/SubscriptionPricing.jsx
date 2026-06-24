@@ -4,7 +4,7 @@ export default function SubscriptionPricing() {
       name: 'Rookie',
       price: 'Free',
       suffix: '',
-      button: 'Try It Free',
+     // button: 'Try It Free',
       popular: false,
       features: [
         '1080p HD Video',
@@ -17,7 +17,7 @@ export default function SubscriptionPricing() {
       name: 'Elite',
       price: '$4.99',
       suffix: '/mo',
-      button: 'Subscribe',
+      //button: 'Subscribe',
       popular: true,
       features: [
         '1080p HD Video',
@@ -31,7 +31,7 @@ export default function SubscriptionPricing() {
       name: 'Pro',
       price: '$9.99',
       suffix: '/mo',
-      button: 'Subscribe',
+      //button: 'Subscribe',
       popular: false,
       features: [
         '1080p HD Video',
@@ -45,7 +45,7 @@ export default function SubscriptionPricing() {
       name: 'GOAT',
       price: '$24.99',
       suffix: '/mo',
-      button: 'Subscribe',
+      //button: 'Subscribe',
       popular: false,
       features: [
         '1080p HD Video',
@@ -128,7 +128,12 @@ export default function SubscriptionPricing() {
 
         <p className="text-sm text-gray-400 mt-8">
           All plans include a free tier. No credit card required to get started.{' '}
-          <span className="text-gradient-ember font-bold">Create your free account →</span>
+          <a 
+            href="https://akture.video/register"
+            className="text-gradient-ember font-bold"
+            >
+          Create your free account →
+          </a>
         </p>
       </div>
     </section>
