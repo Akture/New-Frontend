@@ -8,7 +8,7 @@ export default function Header() {
 
   const navLinks = [
     { label: 'Home', to: '/' },
-    { label: 'Pricing', to: 'https://akture.video/pricing' },
+    { label: 'Pricing', to: '/pricing' },
     { label: 'About', to: '/about' },
     { label: 'FAQ', to: '/faq' },
   ];
