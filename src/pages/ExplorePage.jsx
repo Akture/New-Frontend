@@ -8,7 +8,7 @@ import PurchaseResultsHeader from '../components/PurchaseVideos/PurchaseResultsH
 import PurchaseVideoCard from '../components/PurchaseVideos/PurchaseVideoCard';
 import { matchData } from '../components/PurchaseVideos/PurchaseData';
 
-export default function PurchasePage() {
+export default function ExplorePage() {
   const [cartItems, setCartItems] = useState([]);
   const [court, setCourt] = useState('main');
   const [date, setDate] = useState('Today');
