@@ -20,7 +20,7 @@ export default function ExploreResultsHeader({
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 gap-4 border-b border-gray-200 dark:border-gray-800 pb-4">
       <div>
         <h2 className="text-2xl font-black text-gray-900 dark:text-white uppercase italic tracking-tight">
-          Available Matches
+          Available Videos
         </h2>
 
         <p className="text-gray-500 dark:text-gray-400 font-medium text-sm mt-1">

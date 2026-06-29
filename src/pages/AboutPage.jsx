@@ -13,14 +13,14 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px] opacity-70" />
 
           <div className="relative z-10 max-w-5xl mx-auto">
-            <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
+            <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-6">
               About Akture
             </p>
 
             <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
               Built for Athletes.
               <br />
-              <span className="text-gradient-ember">Designed for Moments.</span>
+              <span className="text-gradient-ember italic inline-block pr-2 pb-2">Designed for Moments.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -33,7 +33,7 @@ export default function AboutPage() {
         <section className="px-6 md:px-12 py-20 border-y border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/40">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
+              <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-4">
                 Our Mission
               </p>
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
 
         <section className="px-6 md:px-12 py-24">
           <div className="max-w-7xl mx-auto text-center">
-            <p className="text-gradient-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
+            <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-4">
               The Team
             </p>
 

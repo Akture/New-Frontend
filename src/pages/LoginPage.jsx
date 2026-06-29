@@ -106,19 +106,19 @@ export default function LoginPage() {
             <div className="text-center">
               <p className="text-gray-600 dark:text-gray-400 font-medium">
                 Don't have an account?
-                <a
-                  href="https://akture.video/register"
+                <Link
+                  to="/register"
                   className="text-ember font-bold hover:underline ml-1"
                 >
                   Create one free
-                </a>
+                </Link>
               </p>
             </div>
 
             <p className="text-center text-xs text-gray-400 mt-8">
               By signing in you agree to our{' '}
-              <a href="https://akture.video/terms-of-service" className="underline hover:text-gray-600">Terms</a> and{' '}
-              <a href="https://akture.video/privacy-policy" className="underline hover:text-gray-600">Privacy Policy</a>.
+              <Link to="/terms-of-service" className="underline hover:text-gray-600">Terms</Link> and{' '}
+              <Link to="/privacy-policy" className="underline hover:text-gray-600">Privacy Policy</Link>.
             </p>
           </div>
         </div>

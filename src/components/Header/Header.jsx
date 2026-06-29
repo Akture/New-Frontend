@@ -64,7 +64,7 @@ export default function Header() {
 
           <div className={`items-center gap-4 ${mobileOpen ? 'hidden' : 'flex'}`}>
             <Link
-              to="https://akture.video/login"
+              to="/login"
               className="hidden lg:block text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors"
             >
               Log In
@@ -106,7 +106,7 @@ export default function Header() {
             ))}
 
             <Link
-              to="https://akture.video/login"
+              to="/login"
               onClick={() => setMobileOpen(false)}
               className="text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors"
             >

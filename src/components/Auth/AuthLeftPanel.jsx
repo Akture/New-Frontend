@@ -16,16 +16,16 @@ export default function AuthLeftPanel() {
       </div>
 
       <div className="relative z-10 flex flex-col justify-center mb-20">
-        <p className="text-gradient-ember text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
+        <p className="text-gradient-ember italic text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
           Action Capture System
         </p>
 
         <h1 className="text-white text-5xl xl:text-[56px] font-black leading-[1.05] tracking-tight mb-2">
           ALL YOUR MOMENTS,
           <br />
-          <span className="text-gradient-ember">PERFECTLY</span>
+          <span className="text-gradient-ember italic">PERFECTLY</span>
           <br />
-          <span className="text-gradient-ember">PRESERVED</span>
+          <span className="text-gradient-ember italic">PRESERVED</span>
         </h1>
 
         <p className="text-gray-400 text-lg mt-6 mb-12 max-w-md">

@@ -152,13 +152,13 @@ export default function RegisterPage() {
 
                 <label htmlFor="terms" className="text-[13px] text-gray-600 dark:text-gray-400 cursor-pointer select-none">
                   I agree to the{' '}
-                  <a href="https://akture.video/terms-of-service" className="font-semibold hover:underline" style={{ color: '#BD2026' }}>
+                  <Link to="/terms-of-service" className="font-semibold hover:underline" style={{ color: '#BD2026' }}>
                     Terms of Service
-                  </a>{' '}
+                  </Link>{' '}
                   and{' '}
-                  <a href="https://akture.video/privacy-policy" className="font-semibold hover:underline" style={{ color: '#BD2026' }}>
+                  <Link to="/privacy-policy" className="font-semibold hover:underline" style={{ color: '#BD2026' }}>
                     Privacy Policy
-                  </a>
+                  </Link>
                 </label>
               </div>
 

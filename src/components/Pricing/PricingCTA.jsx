@@ -12,7 +12,7 @@ export default function PricingCTA() {
       </p>
 
       <Link
-        to="https://akture.video/register"
+        to="/register"
         className="inline-block mt-10 bg-gradient-ember text-white px-8 py-4 rounded-full font-black transition-all shadow-[0_10px_20px_-8px_rgba(189,32,38,0.8)]"
       >
         Get Started Free →

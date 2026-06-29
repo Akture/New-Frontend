@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
         <section className="relative px-6 md:px-12 py-24 text-center">
           <div className="absolute inset-0 bg-dot-pattern opacity-70" />
           <div className="relative z-10 max-w-5xl mx-auto">
-            <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
+            <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-6">
               Legal
             </p>
             <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
@@ -157,7 +157,7 @@ export default function PrivacyPolicyPage() {
             <h3 className="font-bold text-gray-900 dark:text-white mb-2 mt-6">Information automatically collected</h3>
             <P><em>In Short: Some information — such as your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our Services.</em></P>
             <P>We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information.</P>
-            <P>Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in our Cookie Notice: <a href="https://akture.video/cookie-policy" className="text-ember hover:underline">akture.video/cookie-policy</a>.</P>
+            <P>Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in our Cookie Notice: <a href="/cookie-policy" className="text-ember hover:underline">akture.video/cookie-policy</a>.</P>
             <P>The information we collect includes:</P>
             <UL>
               <li><strong className="text-gray-900 dark:text-white">Log and Usage Data.</strong> Service-related, diagnostic, usage, and performance information our servers automatically collect when you access or use our Services, including your IP address, device information, browser type, and activity information such as date/time stamps, pages viewed, searches, and other actions.</li>
@@ -206,7 +206,7 @@ export default function PrivacyPolicyPage() {
             <P>We may use cookies and similar tracking technologies (like web beacons and pixels) to gather information when you interact with our Services. Some online tracking technologies help us maintain the security of our Services and your account, prevent crashes, fix bugs, save your preferences, and assist with basic site functions.</P>
             <P>We also permit third parties and service providers to use online tracking technologies on our Services for analytics and advertising, including to help manage and display advertisements, to tailor advertisements to your interests, or to send abandoned shopping cart reminders.</P>
             <P>To the extent these online tracking technologies are deemed to be a "sale"/"sharing" under applicable US state laws, you can opt out by submitting a request as described in section 12 below.</P>
-            <P>Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice: <a href="https://akture.video/cookie-policy" className="text-ember hover:underline">akture.video/cookie-policy</a>.</P>
+            <P>Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice: <a href="/cookie-policy" className="text-ember hover:underline">akture.video/cookie-policy</a>.</P>
 
             {/* Section 6 */}
             <SectionHeading id="social" num="6" title="HOW DO WE HANDLE YOUR SOCIAL LOGINS?" />
@@ -240,7 +240,7 @@ export default function PrivacyPolicyPage() {
             <P><strong className="text-gray-900 dark:text-white">Opting out of marketing and promotional communications:</strong> You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, or by contacting us using the details in section 14. However, we may still communicate with you for service-related purposes necessary for the administration and use of your account.</P>
             <h3 className="font-bold text-gray-900 dark:text-white mb-2 mt-6">Account Information</h3>
             <P>If you would at any time like to review or change the information in your account or terminate your account, you can log in to your account settings and update your user account. Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.</P>
-            <P><strong className="text-gray-900 dark:text-white">Cookies and similar technologies:</strong> Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject cookies, though this could affect certain features or services. For further information, please see our Cookie Notice: <a href="https://akture.video/cookie-policy" className="text-ember hover:underline">akture.video/cookie-policy</a>.</P>
+            <P><strong className="text-gray-900 dark:text-white">Cookies and similar technologies:</strong> Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject cookies, though this could affect certain features or services. For further information, please see our Cookie Notice: <a href="/cookie-policy" className="text-ember hover:underline">akture.video/cookie-policy</a>.</P>
             <P>If you have questions or comments about your privacy rights, you may email us at <a href="mailto:Contact@Akture.video" className="text-ember hover:underline">Contact@Akture.video</a>.</P>
 
             {/* Section 11 */}
