@@ -1,4 +1,4 @@
-export default function PurchaseVideoCard({ match, onAdd, addedToCart }) {
+export default function ExploreVideoCard({ match, onAdd, addedToCart }) {
     return (
       <div className="bg-white dark:bg-surface rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_-2px_rgba(0,0,0,0.35)] border border-gray-200 dark:border-gray-800 hover:shadow-[0_0_20px_rgba(189,32,38,0.2)] transition-all duration-300 group flex flex-col">
         <div className="relative aspect-video bg-gray-200 dark:bg-gray-900 overflow-hidden">

@@ -1,4 +1,4 @@
-export default function PurchaseHero() {
+export default function ExploreHero() {
   return (
     <div className="text-center max-w-2xl mx-auto mb-10">
       <h1 className="text-4xl md:text-5xl font-black italic uppercase tracking-tight text-gray-900 dark:text-white mb-3">

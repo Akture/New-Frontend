@@ -1,4 +1,4 @@
-import { timeOptions, dateOptions } from './PurchaseData';
+import { timeOptions, dateOptions } from './ExploreData';
 
 const selectStyle = {
   WebkitAppearance: 'none',
@@ -10,7 +10,7 @@ const selectStyle = {
   backgroundSize: '1.2em',
 };
 
-export default function PurchaseSearchForm({
+export default function ExploreSearchForm({
   onSearch,
   court,
   setCourt,

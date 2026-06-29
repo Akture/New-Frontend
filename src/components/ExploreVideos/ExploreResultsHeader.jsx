@@ -1,4 +1,4 @@
-import { courtLabels } from './PurchaseData';
+import { courtLabels } from './ExploreData';
 
 const selectStyle = {
   WebkitAppearance: 'none',
@@ -9,7 +9,7 @@ const selectStyle = {
   backgroundSize: '1.2em',
 };
 
-export default function PurchaseResultsHeader({
+export default function ExploreResultsHeader({
   displayedCount,
   date,
   court,
