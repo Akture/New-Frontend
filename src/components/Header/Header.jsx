@@ -10,6 +10,7 @@ export default function Header() {
     { label: 'Home', to: '/' },
     { label: 'Live', to: '/livestreams', live: true },
     { label: 'Pricing', to: '/pricing' },
+    { label: 'Locations', to: '/locations' },
     { label: 'About', to: '/about' },
     { label: 'FAQ', to: '/faq' },
   ];
