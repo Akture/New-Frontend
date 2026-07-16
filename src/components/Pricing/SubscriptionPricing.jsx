@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function SubscriptionPricing() {
   const plans = [
     {
@@ -128,12 +130,12 @@ export default function SubscriptionPricing() {
 
         <p className="text-sm text-gray-400 mt-8">
           All plans include a free tier. No credit card required to get started.{' '}
-          <a 
-            href="https://akture.video/register"
-            className="text-gradient-ember font-bold"
+          <Link
+            to="/register"
+            className="text-gradient-ember italic font-bold"
             >
           Create your free account →
-          </a>
+          </Link>
         </p>
       </div>
     </section>

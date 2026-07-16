@@ -1,6 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import GlassPanel from '../GlassPanel/GlassPanel';
 import { heroSlides } from '../../data/heroSlides';
+
+function SmartLink({ href, children, ...props }) {
+  const isInternal = href.startsWith('/') && !href.startsWith('//');
+  return isInternal ? (
+    <Link to={href} {...props}>{children}</Link>
+  ) : (
+    <a href={href} {...props}>{children}</a>
+  );
+}
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -64,11 +74,11 @@ export default function HeroSection() {
 
                   <h1
                     className="font-heading text-6xl md:text-8xl font-extrabold text-marble leading-tight mb-6 tracking-tight"
-                    style={{ fontFamily: 'Outfit, sans-serif', lineHeight: 1.1 }}
+                    style={{ fontFamily: 'Outfit, sans-serif', lineHeight: 1.2 }}
                   >
                     {slide.headingLine1}
                     <br />
-                    <span className={`text-transparent bg-clip-text bg-gradient-to-r ${slide.headingGradient}`}>
+                    <span className={`text-transparent bg-clip-text bg-gradient-to-r italic inline-block pr-2 pb-2 ${slide.headingGradient}`}>
                       {slide.headingLine2}
                     </span>
                   </h1>
@@ -79,21 +89,21 @@ export default function HeroSection() {
 
                   <div className="flex flex-wrap items-center gap-4">
                     {slide.btn1Text && slide.btn1Href && (
-                      <a
+                      <SmartLink
                         href={slide.btn1Href}
                         className={`${slide.btn1Class} px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg`}
                         style={slide.btn1Shadow ? { boxShadow: slide.btn1Shadow } : {}}
                       >
                         {slide.btn1Text} <i className="ph-bold ph-arrow-right"></i>
-                      </a>
+                      </SmartLink>
                     )}
 
                     {slide.btn2Text && slide.btn2Href && (
-                      <a href={slide.btn2Href}>
+                      <SmartLink href={slide.btn2Href}>
                         <GlassPanel className="hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-lg cursor-pointer">
                           {slide.btn2Text} {slide.btn2Icon && <i className={slide.btn2Icon}></i>}
                         </GlassPanel>
-                      </a>
+                      </SmartLink>
                     )}
                   </div>
                 </div>

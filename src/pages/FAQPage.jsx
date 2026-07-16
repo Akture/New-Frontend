@@ -161,14 +161,14 @@ export default function FAQPage() {
           <div className="absolute inset-0 bg-dot-pattern opacity-70" />
 
           <div className="relative z-10 max-w-5xl mx-auto">
-            <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-6">
+            <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-6">
               FAQ
             </p>
 
             <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6">
               Questions?
               <br />
-              <span className="text-ember">We've Got Answers.</span>
+              <span className="text-gradient-ember italic inline-block pr-2 pb-2">We've Got Answers.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -180,7 +180,7 @@ export default function FAQPage() {
 
         <section className="px-6 md:px-12 py-20 border-y border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/40">
           <div className="max-w-5xl mx-auto">
-            <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-4 text-center">
+            <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-4 text-center">
               Help Center
             </p>
 
@@ -231,7 +231,7 @@ export default function FAQPage() {
 
         <section className="px-6 md:px-12 py-24">
           <div className="max-w-5xl mx-auto rounded-3xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] backdrop-blur-md p-8 md:p-12 text-center shadow-sm dark:shadow-2xl dark:shadow-black/40">
-            <p className="text-ember text-xs font-black tracking-[0.25em] uppercase mb-4">
+            <p className="text-gradient-ember italic text-xs font-black tracking-[0.25em] uppercase mb-4">
               Still Need Help?
             </p>
 

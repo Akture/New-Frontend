@@ -1,8 +1,8 @@
-export default function PurchaseHero() {
+export default function ExploreHero() {
   return (
     <div className="text-center max-w-2xl mx-auto mb-10">
-      <h1 className="text-4xl md:text-5xl font-black italic uppercase tracking-tight text-gray-900 dark:text-white mb-3">
-        Retrieve Your <span className="text-gradient-ember">Match</span>
+      <h1 className="text-4xl md:text-6xl font-black tracking-tight text-gray-900 dark:text-white mb-3">
+        Retrieve Your <span className="text-gradient-ember italic inline-block pr-2 pb-2">Video</span>
       </h1>
 
       <p className="text-gray-500 dark:text-gray-400 font-medium">

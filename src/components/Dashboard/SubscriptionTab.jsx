@@ -15,7 +15,7 @@ export default function SubscriptionTab() {
           
           <div className="flex items-center justify-between mb-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-gradient-ember">
+              <span className="text-xs font-bold uppercase tracking-widest text-gradient-ember italic">
                 Current Plan
               </span>
 

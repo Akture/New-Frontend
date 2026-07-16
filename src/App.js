@@ -4,7 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import PurchasePage from './pages/PurchasePage';
+import ExplorePage from './pages/ExplorePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PurchasedVideosPage from './pages/PurchasedVideosPage';
@@ -16,6 +16,7 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import ReturnPolicyPage from './pages/ReturnPolicyPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
+import NotFound from './components/NotFound/NotFound';
 
 export default function App() {
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/purchase" element={<PurchasePage />} />
+          <Route path="/explore" element={<ExplorePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/my-videos" element={<PurchasedVideosPage />} />
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/return-policy" element={<ReturnPolicyPage />} />
           <Route path="/disclaimer" element={<DisclaimerPage />} />
           <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Analytics />

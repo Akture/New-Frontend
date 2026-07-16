@@ -2,13 +2,13 @@ import { useState } from 'react';
 import Banner from '../components/Banner/Banner';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import PurchaseHero from '../components/PurchaseVideos/PurchaseHero';
-import PurchaseSearchForm from '../components/PurchaseVideos/PurchaseSearchForm';
-import PurchaseResultsHeader from '../components/PurchaseVideos/PurchaseResultsHeader';
-import PurchaseVideoCard from '../components/PurchaseVideos/PurchaseVideoCard';
-import { matchData } from '../components/PurchaseVideos/PurchaseData';
+import ExploreHero from '../components/ExploreVideos/ExploreHero';
+import ExploreSearchForm from '../components/ExploreVideos/ExploreSearchForm';
+import ExploreResultsHeader from '../components/ExploreVideos/ExploreResultsHeader';
+import ExploreVideoCard from '../components/ExploreVideos/ExploreVideoCard';
+import { matchData } from '../components/ExploreVideos/ExploreData';
 
-export default function PurchasePage() {
+export default function ExplorePage() {
   const [cartItems, setCartItems] = useState([]);
   const [court, setCourt] = useState('main');
   const [date, setDate] = useState('Today');
@@ -51,9 +51,9 @@ export default function PurchasePage() {
         <div className="absolute inset-0 opacity-100 pointer-events-none z-0 bg-dot-pattern"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10">
-          <PurchaseHero />
+          <ExploreHero />
 
-          <PurchaseSearchForm
+          <ExploreSearchForm
             onSearch={handleSearch}
             court={court}
             setCourt={setCourt}
@@ -67,7 +67,7 @@ export default function PurchasePage() {
 
           {searched && (
             <>
-              <PurchaseResultsHeader
+              <ExploreResultsHeader
                 displayedCount={displayedMatches.length}
                 date={date}
                 court={court}
@@ -77,7 +77,7 @@ export default function PurchasePage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {displayedMatches.map((match) => (
-                  <PurchaseVideoCard
+                  <ExploreVideoCard
                     key={match.id}
                     match={match}
                     onAdd={handleAdd}
