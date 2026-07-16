@@ -64,14 +64,14 @@ export default function Header() {
 
           <div className={`items-center gap-4 ${mobileOpen ? 'hidden' : 'flex'}`}>
             <Link
-              to="/login"
+              to="https://akture.video/login"
               className="hidden lg:block text-sm font-medium text-gray-700 dark:text-marble/80 hover:text-gray-900 dark:hover:text-marble transition-colors"
             >
               Log In
             </Link>
 
             <Link
-              to="/explore"
+              to="https://akture.video/explore"
               className="bg-gradient-ember text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all min-w-max lg:ml-4 shadow-ember-sm"
             >
               Purchase
