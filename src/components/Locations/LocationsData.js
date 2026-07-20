@@ -7,6 +7,7 @@ export const locations = [
     distance: '1.2 miles away',
     status: 'active',
     cityValue: 'tomball',
+    mapUrl: 'https://maps.app.goo.gl/zzuf9wwBGGHFEkVXA', // Added
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const locations = [
     distance: '3.4 miles away',
     status: 'active',
     cityValue: 'austin',
+    mapUrl: 'https://maps.app.goo.gl/FasJYbzpiVXUvp4t9', // Added
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const locations = [
     distance: '15.2 miles away',
     status: 'active',
     cityValue: 'denton',
+    mapUrl: 'https://maps.app.goo.gl/i4hND5zoqsC3CA9m8', // Added
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const locations = [
     distance: '18.5 miles away',
     status: 'coming-soon',
     cityValue: 'denton',
+    mapUrl: 'https://maps.app.goo.gl/AqVfTuFTmsH4ezQw6', // Added
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export const locations = [
     distance: '195 miles away',
     status: 'active',
     cityValue: 'richardson',
+    mapUrl: 'https://maps.app.goo.gl/ghyaBahDhPjnph3h8', // Added
   },
   {
     id: 6,
@@ -52,24 +57,8 @@ export const locations = [
     distance: '196 miles away',
     status: 'active',
     cityValue: 'arlington',
+    mapUrl: 'https://maps.app.goo.gl/pR4yAPeEt1F3AW926', // Added
   },
 ];
 
-export const cityOptions = [
-  { value: 'austin', label: 'Austin, TX' },
-  { value: 'richardson', label: 'Richardson, TX' },
-  { value: 'tomball', label: 'Tomball, TX' },
-  { value: 'denton', label: 'Denton, TX' },
-  { value: 'arlington', label: 'Arlington, TX' },
-];
-
-export const mapPositions = {
-  1: { top: '30%', left: '25%' },
-  2: { top: '40%', left: '55%' },
-  3: { top: '25%', left: '75%' },
-  4: { top: '55%', left: '45%' },
-  5: { top: '70%', left: '20%' },
-  6: { top: '65%', left: '60%' },
-  7: { top: '80%', left: '80%' },
-  8: { top: '45%', left: '35%' },
-};
+// ... rest of file remains unchanged
