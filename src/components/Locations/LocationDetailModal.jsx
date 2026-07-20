@@ -28,7 +28,10 @@ export default function LocationDetailModal({ location, onClose }) {
           {location?.distance}
         </div>
 
-        <button className="w-full bg-onyx dark:bg-white dark:text-onyx text-white font-bold py-3 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-all">
+        <button
+          onClick={handleGetDirections}
+          className="w-full bg-onyx dark:bg-white dark:text-onyx text-white font-bold py-3 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-all"
+        >
           Get Directions
         </button>
       </div>
