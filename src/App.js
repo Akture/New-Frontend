@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ExplorePage from './pages/ExplorePage';
+import LocationsPage from './pages/LocationsPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PurchasedVideosPage from './pages/PurchasedVideosPage';
