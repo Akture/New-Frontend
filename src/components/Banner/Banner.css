@@ -1,14 +1,28 @@
 .ticker-container {
     overflow: hidden;
-  }
-  
-  .ticker-track {
-    display: inline-flex;
-    animation: marquee 24s linear infinite;
-    width: max-content;
-  }
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
 
-  @keyframes marquee {
+.ticker-track {
+    display: inline-flex;
+    animation: marquee 20s linear infinite;
+    width: max-content;
+}
+
+@keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-  }
+}
