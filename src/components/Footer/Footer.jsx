@@ -6,6 +6,9 @@ export default function Footer() {
     { label: 'Home', path: '/' },
     { label: 'Purchase', path: 'https://akture.video/explore' },
     { label: 'Pricing', path: '/pricing' },
+    { label: 'Locations', path: '/locations' },
+    { label: 'About', path: '/about' },
+    { label: 'FAQ', path: '/faq' },
   ];
 
   const policyLinks = [
