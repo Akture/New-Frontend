@@ -4,8 +4,11 @@ import LogoIcon from '../LogoIcon/LogoIcon';
 export default function Footer() {
   const exploreLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Purchase', path: '/explore' },
+    { label: 'Purchase', path: 'https://akture.video/explore' },
     { label: 'Pricing', path: '/pricing' },
+    { label: 'Locations', path: '/locations' },
+    { label: 'About', path: '/about' },
+    { label: 'FAQ', path: '/faq' },
   ];
 
   const policyLinks = [
