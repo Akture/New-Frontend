@@ -98,6 +98,30 @@ html.dark .bg-dot-pattern {
   background-size: 24px 24px;
 }
 
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-rise {
+  animation: rise 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* The centered cart bar carries its own translateX; keep it while rising */
+@media (min-width: 640px) {
+  @keyframes rise-centered {
+    from { opacity: 0; transform: translate(-50%, 16px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
+  .animate-rise.sm\:-translate-x-1\/2 {
+    animation-name: rise-centered;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise { animation: none; }
+}
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }

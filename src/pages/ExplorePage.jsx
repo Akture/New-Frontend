@@ -7,6 +7,8 @@ import ExploreHero from '../components/ExploreVideos/ExploreHero';
 import ExploreSearchForm from '../components/ExploreVideos/ExploreSearchForm';
 import ExploreResultsHeader from '../components/ExploreVideos/ExploreResultsHeader';
 import ExploreVideoCard from '../components/ExploreVideos/ExploreVideoCard';
+import CartBar from '../components/ExploreVideos/CartBar';
+import PurchaseConfirmationModal from '../components/ExploreVideos/PurchaseConfirmationModal';
 import { fetchVideos } from '../store/videoSlice';
 import { labelToDate } from '../utils/videoUtils';
 
@@ -17,7 +19,10 @@ export default function ExplorePage() {
   const currentPage = useSelector((state) => state.video.currentPage);
   const isLoading = useSelector((state) => state.video.loading.fetchVideos);
 
+  // Cart holds full video objects (in selection order) so the reel survives
+  // later searches replacing the redux results list.
   const [cartItems, setCartItems] = useState([]);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [court, setCourt] = useState('main');
   const [date, setDate] = useState('Today');
   const [startTime, setStartTime] = useState('08:30');
@@ -49,9 +54,32 @@ export default function ExplorePage() {
   };
 
   const handleAdd = (id) => {
-    setCartItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    setCartItems((prev) => {
+      if (prev.some((item) => item.id === id)) {
+        return prev.filter((item) => item.id !== id);
+      }
+      const video = videos.find((v) => v.id === id);
+      return video ? [...prev, video] : prev;
+    });
+  };
+
+  const handleRemove = (id) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const handleMove = (index, direction) => {
+    setCartItems((prev) => {
+      const target = index + direction;
+      if (target < 0 || target >= prev.length) return prev;
+      const next = [...prev];
+      [next[index], next[target]] = [next[target], next[index]];
+      return next;
+    });
+  };
+
+  const handleClear = () => {
+    setCartItems([]);
+    setShowConfirmation(false);
   };
 
   const sortedVideos = [...videos].sort((a, b) => {
@@ -69,7 +97,11 @@ export default function ExplorePage() {
       <main className="flex-grow w-full relative pt-12">
         <div className="absolute inset-0 opacity-100 pointer-events-none z-0 bg-dot-pattern" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10">
+        <div
+          className={`max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10 ${
+            cartItems.length > 0 ? 'pb-32' : ''
+          }`}
+        >
           <ExploreHero />
 
           <ExploreSearchForm
@@ -101,8 +133,14 @@ export default function ExplorePage() {
               />
 
               {sortedVideos.length === 0 ? (
-                <div className="text-center py-16 text-gray-500 dark:text-gray-400">
-                  No videos found for the selected filters.
+                <div className="text-center py-16">
+                  <i className="ph-duotone ph-video-camera-slash text-5xl text-gray-300 dark:text-gray-600"></i>
+                  <p className="mt-4 font-bold text-gray-900 dark:text-white">
+                    No videos in this window
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    Try widening the time range or picking another date.
+                  </p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -111,7 +149,8 @@ export default function ExplorePage() {
                       key={video.id}
                       video={video}
                       onAdd={handleAdd}
-                      addedToCart={cartItems.includes(video.id)}
+                      addedToCart={cartItems.some((item) => item.id === video.id)}
+                      cartIndex={cartItems.findIndex((item) => item.id === video.id)}
                     />
                   ))}
                 </div>
@@ -131,6 +170,20 @@ export default function ExplorePage() {
           )}
         </div>
       </main>
+
+      <CartBar
+        cart={cartItems}
+        onReview={() => setShowConfirmation(true)}
+        onClear={handleClear}
+      />
+
+      <PurchaseConfirmationModal
+        isOpen={showConfirmation}
+        onClose={() => setShowConfirmation(false)}
+        cart={cartItems}
+        onRemove={handleRemove}
+        onMove={handleMove}
+      />
 
       <Footer />
     </div>
