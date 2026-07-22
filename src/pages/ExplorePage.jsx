@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Banner from '../components/Banner/Banner';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import PurchaseHero from '../components/PurchaseVideos/PurchaseHero';
-import PurchaseSearchForm from '../components/PurchaseVideos/PurchaseSearchForm';
-import PurchaseResultsHeader from '../components/PurchaseVideos/PurchaseResultsHeader';
-import PurchaseVideoCard from '../components/PurchaseVideos/PurchaseVideoCard';
+import ExploreHero from '../components/ExploreVideos/ExploreHero';
+import ExploreSearchForm from '../components/ExploreVideos/ExploreSearchForm';
+import ExploreResultsHeader from '../components/ExploreVideos/ExploreResultsHeader';
+import ExploreVideoCard from '../components/ExploreVideos/ExploreVideoCard';
 import { fetchVideos } from '../store/videoSlice';
 import { labelToDate } from '../utils/videoUtils';
 
@@ -70,9 +70,9 @@ export default function ExplorePage() {
         <div className="absolute inset-0 opacity-100 pointer-events-none z-0 bg-dot-pattern" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative z-10">
-          <PurchaseHero />
+          <ExploreHero />
 
-          <PurchaseSearchForm
+          <ExploreSearchForm
             onSearch={handleSearch}
             court={court}
             setCourt={setCourt}
@@ -92,7 +92,7 @@ export default function ExplorePage() {
 
           {!isLoading && searched && (
             <>
-              <PurchaseResultsHeader
+              <ExploreResultsHeader
                 displayedCount={sortedVideos.length}
                 date={date}
                 court={court}
@@ -107,7 +107,7 @@ export default function ExplorePage() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {sortedVideos.map((video) => (
-                    <PurchaseVideoCard
+                    <ExploreVideoCard
                       key={video.id}
                       video={video}
                       onAdd={handleAdd}

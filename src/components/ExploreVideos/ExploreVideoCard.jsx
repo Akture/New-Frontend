@@ -1,6 +1,6 @@
 import { getVideoThumbnail, getVideoTitle, formatDuration, formatDateTime } from '../../utils/videoUtils';
 
-export default function PurchaseVideoCard({ video, onAdd, addedToCart }) {
+export default function ExploreVideoCard({ video, onAdd, addedToCart }) {
   const thumbnail = getVideoThumbnail(video);
   const title = getVideoTitle(video);
   const duration = video.duration ? formatDuration(video.duration) : null;
