@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ExplorePage from './pages/ExplorePage';
+import LocationsPage from './pages/LocationsPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PurchasedVideosPage from './pages/PurchasedVideosPage';
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/locations" element={<LocationsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/my-videos" element={<PurchasedVideosPage />} />
