@@ -1,23 +1,36 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getVideoThumbnail, getVideoTitle, formatDateTime, formatClock } from '../../utils/videoUtils';
 
-// Prices may arrive as numbers or "$5.99" strings; anything else means the
-// backend owns the price and we say so instead of inventing one.
-const parsePrice = (price) => {
-  if (typeof price === 'number' && !isNaN(price)) return price;
-  if (typeof price === 'string') {
-    const parsed = parseFloat(price.replace(/[^0-9.]/g, ''));
-    if (!isNaN(parsed)) return parsed;
+const formatMoney = (amount, currency = 'USD') => {
+  if (typeof amount !== 'number' || isNaN(amount)) return null;
+  try {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
+  } catch {
+    return `$${amount.toFixed(2)}`;
   }
-  return null;
 };
 
+/**
+ * Presentational checkout overlay. All pricing is server-owned (the backend
+ * prices by TOTAL combined duration, not per-clip), so this component only
+ * displays what the parent hands it via `pricing` and only exposes a control
+ * as live when its handler is provided — no fake actions.
+ *
+ * pricing (null until the backend is wired):
+ *   { status: 'idle'|'loading'|'ready'|'error',
+ *     price, originalPrice, currency,
+ *     billableSeconds, creditsApplied,
+ *     discountValid, discountReason }
+ */
 export default function PurchaseConfirmationModal({
   isOpen,
   onClose,
   cart,
   onRemove,
   onMove,
+  pricing = null,
+  onApplyDiscount,
+  onProceed,
 }) {
   const [discountCode, setDiscountCode] = useState('');
 
@@ -34,18 +47,29 @@ export default function PurchaseConfirmationModal({
     };
   }, [isOpen, onClose]);
 
-  const totalSeconds = useMemo(
-    () => cart.reduce((sum, video) => sum + (video.duration ?? 0), 0),
-    [cart]
-  );
-
-  const totalPrice = useMemo(() => {
-    const prices = cart.map((video) => parsePrice(video.price));
-    if (prices.length === 0 || prices.some((p) => p === null)) return null;
-    return prices.reduce((sum, p) => sum + p, 0);
-  }, [cart]);
-
   if (!isOpen) return null;
+
+  const totalSeconds = cart.reduce((sum, video) => sum + (video.duration ?? 0), 0);
+  const isPricing = pricing?.status === 'loading';
+  const currency = pricing?.currency || 'USD';
+
+  const priceLabel =
+    pricing && typeof pricing.price === 'number'
+      ? formatMoney(pricing.price, currency)
+      : null;
+  const originalLabel =
+    pricing &&
+    typeof pricing.originalPrice === 'number' &&
+    pricing.originalPrice !== pricing.price
+      ? formatMoney(pricing.originalPrice, currency)
+      : null;
+
+  const canApplyDiscount =
+    typeof onApplyDiscount === 'function' &&
+    cart.length > 0 &&
+    discountCode.trim().length > 0 &&
+    !isPricing;
+  const canProceed = typeof onProceed === 'function' && cart.length > 0 && !isPricing;
 
   return (
     <div
@@ -76,8 +100,7 @@ export default function PurchaseConfirmationModal({
             id="purchase-confirmation-title"
             className="text-2xl sm:text-3xl font-black tracking-tight text-gray-900 dark:text-white"
           >
-            Confirm Your{' '}
-            <span className="text-gradient-ember italic">Order</span>
+            Confirm Your <span className="text-gradient-ember italic">Order</span>
           </h2>
         </div>
 
@@ -108,7 +131,6 @@ export default function PurchaseConfirmationModal({
                       key={video.id}
                       className="relative flex items-center gap-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-3"
                     >
-                      {/* Connecting rail between order badges */}
                       {index < cart.length - 1 && (
                         <span
                           aria-hidden="true"
@@ -122,11 +144,7 @@ export default function PurchaseConfirmationModal({
 
                       <div className="w-20 sm:w-24 shrink-0 aspect-video rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800">
                         {thumbnail ? (
-                          <img
-                            src={thumbnail}
-                            alt={title}
-                            className="w-full h-full object-cover"
-                          />
+                          <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
                             <i className="ph-fill ph-play text-gray-500 dark:text-gray-400"></i>
@@ -193,23 +211,53 @@ export default function PurchaseConfirmationModal({
                 </p>
               </div>
 
-              {/* Totals */}
-              <div className="mt-5 border-t border-gray-200 dark:border-white/10 pt-4 space-y-2">
+              {/* Totals — priced server-side by total duration */}
+              <div className="mt-5 border-t border-gray-200 dark:border-white/10 pt-4 space-y-2.5">
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-semibold text-gray-500 dark:text-gray-400">
-                    Total duration
+                    Total requested duration
                   </span>
                   <span className="font-black text-gray-900 dark:text-white tabular-nums">
                     {formatClock(totalSeconds)}
                   </span>
                 </div>
-                <div className="flex items-center justify-between">
+
+                {typeof pricing?.billableSeconds === 'number' && (
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-semibold text-gray-500 dark:text-gray-400">
+                      Billable
+                    </span>
+                    <span className="font-bold text-gray-900 dark:text-white tabular-nums">
+                      {formatClock(pricing.billableSeconds)}
+                    </span>
+                  </div>
+                )}
+
+                {typeof pricing?.creditsApplied === 'number' && pricing.creditsApplied > 0 && (
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-semibold text-emerald">Purchase credits applied</span>
+                    <span className="font-bold text-emerald tabular-nums">
+                      −{formatClock(pricing.creditsApplied)}
+                    </span>
+                  </div>
+                )}
+
+                <div className="flex items-center justify-between pt-1">
                   <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
                     Price
                   </span>
-                  {totalPrice !== null ? (
-                    <span className="text-xl font-black text-gray-900 dark:text-white tabular-nums">
-                      ${totalPrice.toFixed(2)}
+                  {isPricing ? (
+                    <span className="w-16 h-5 rounded bg-gray-200 dark:bg-white/10 animate-pulse" />
+                  ) : priceLabel ? (
+                    <span className="flex items-baseline gap-2">
+                      {originalLabel && (
+                        <span className="text-sm font-semibold text-gray-400 line-through tabular-nums">
+                          {originalLabel}
+                        </span>
+                      )}
+                      <span className="text-xl font-black text-gray-900 dark:text-white tabular-nums">
+                        {priceLabel}
+                      </span>
                     </span>
                   ) : (
                     <span className="text-sm font-bold text-gray-500 dark:text-gray-400">
@@ -221,7 +269,13 @@ export default function PurchaseConfirmationModal({
 
               {/* Discount code */}
               <div className="mt-4">
-                <div className="flex gap-2">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (canApplyDiscount) onApplyDiscount(discountCode.trim());
+                  }}
+                  className="flex gap-2"
+                >
                   <input
                     type="text"
                     value={discountCode}
@@ -230,13 +284,37 @@ export default function PurchaseConfirmationModal({
                     className="flex-1 min-w-0 bg-input dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-form px-4 py-2.5 text-base sm:text-sm font-semibold text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-ember focus:ring-1 focus:ring-ember transition-colors"
                   />
                   <button
-                    disabled
-                    title="Discount codes activate once checkout is connected"
-                    className="px-5 py-2.5 rounded-form font-bold text-xs uppercase tracking-widest bg-gray-100 dark:bg-white/10 text-gray-400 dark:text-gray-500 cursor-not-allowed"
+                    type="submit"
+                    disabled={!canApplyDiscount}
+                    title={
+                      typeof onApplyDiscount === 'function'
+                        ? undefined
+                        : 'Discount codes activate once checkout is connected'
+                    }
+                    className={`px-5 py-2.5 rounded-form font-bold text-xs uppercase tracking-widest transition-colors ${
+                      canApplyDiscount
+                        ? 'bg-gray-900 dark:bg-white text-white dark:text-onyx hover:bg-ember dark:hover:bg-ember dark:hover:text-white'
+                        : 'bg-gray-100 dark:bg-white/10 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                    }`}
                   >
                     Apply
                   </button>
-                </div>
+                </form>
+
+                {pricing?.discountReason && (
+                  <p
+                    className={`mt-2 text-xs font-semibold flex items-center gap-1.5 ${
+                      pricing.discountValid ? 'text-emerald' : 'text-ember'
+                    }`}
+                  >
+                    <i
+                      className={`ph-bold ${
+                        pricing.discountValid ? 'ph-check-circle' : 'ph-warning-circle'
+                      }`}
+                    ></i>
+                    {pricing.discountReason}
+                  </p>
+                )}
               </div>
             </>
           )}
@@ -253,18 +331,23 @@ export default function PurchaseConfirmationModal({
                 Cancel
               </button>
               <button
-                disabled
-                aria-disabled="true"
-                className="py-3 px-7 rounded-xl font-bold text-xs uppercase tracking-widest text-white bg-gradient-ember opacity-50 cursor-not-allowed flex items-center gap-2"
+                onClick={canProceed ? onProceed : undefined}
+                disabled={!canProceed}
+                aria-disabled={!canProceed}
+                className={`py-3 px-7 rounded-xl font-bold text-xs uppercase tracking-widest text-white bg-gradient-ember flex items-center gap-2 ${
+                  canProceed ? 'shadow-ember-md' : 'opacity-50 cursor-not-allowed'
+                }`}
               >
-                Proceed to Payment
-                <i className="ph-bold ph-arrow-right"></i>
+                {isPricing ? 'Working…' : 'Proceed to Payment'}
+                {!isPricing && <i className="ph-bold ph-arrow-right"></i>}
               </button>
             </div>
-            <p className="mt-3 text-right text-[11px] font-semibold text-gray-400 dark:text-gray-500">
-              <i className="ph-bold ph-plugs mr-1"></i>
-              Checkout connects soon — payments aren&apos;t live in this preview.
-            </p>
+            {typeof onProceed !== 'function' && (
+              <p className="mt-3 text-right text-[11px] font-semibold text-gray-400 dark:text-gray-500">
+                <i className="ph-bold ph-plugs mr-1"></i>
+                Checkout connects soon — payments aren&apos;t live in this preview.
+              </p>
+            )}
           </div>
         )}
       </div>

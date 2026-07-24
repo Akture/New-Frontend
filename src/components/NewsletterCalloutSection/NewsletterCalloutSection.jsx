@@ -37,7 +37,7 @@ export default function NewsletterCalloutSection() {
     setStatus('');
 
     try {
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
