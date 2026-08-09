@@ -1,4 +1,8 @@
-export default function StorageCard({ onRefresh }) {
+import { DEFAULT_PLAN_ID, getPlanById } from '../../data/subscriptionPlans';
+
+export default function StorageCard({ onRefresh, planId = DEFAULT_PLAN_ID }) {
+  const plan = getPlanById(planId);
+
   return (
     <div className="rounded-2xl shadow-sm border p-6 sm:p-8 w-full max-w-4xl mx-auto mt-4 transition-all hover:shadow-md bg-white border-gray-200 dark:bg-[#111827] dark:border-white/10">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -6,7 +10,7 @@ export default function StorageCard({ onRefresh }) {
           <h2 className="text-lg font-bold text-onyx dark:text-white flex items-center">
             Storage Used
             <span className="text-gray-500 dark:text-gray-400 font-medium text-sm ml-2 px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800">
-              (Plan: Free)
+              (Plan: {plan.name})
             </span>
           </h2>
 

@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
-import { getVideoThumbnail, getVideoTitle, formatDateTime, formatClock } from '../../utils/videoUtils';
-
-const formatMoney = (amount, currency = 'USD') => {
-  if (typeof amount !== 'number' || isNaN(amount)) return null;
-  try {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
-  } catch {
-    return `$${amount.toFixed(2)}`;
-  }
-};
+import {
+  formatClock,
+  formatMoney,
+  getClipDuration,
+  getClipThumbnail,
+  getClipTimeLabel,
+  getClipTitle,
+} from './clipShape';
 
 /**
- * Presentational checkout overlay. All pricing is server-owned (the backend
- * prices by TOTAL combined duration, not per-clip), so this component only
- * displays what the parent hands it via `pricing` and only exposes a control
- * as live when its handler is provided — no fake actions.
+ * Purchase confirmation overlay.
  *
- * pricing (null until the backend is wired):
+ * Pricing is owned by the server (it is calculated from the total combined
+ * duration, not by adding up per-clip prices), so this component only displays
+ * what it is handed through `pricing`, and only enables a control when its
+ * handler is provided. Until checkout is connected, Apply and Proceed render
+ * in a disabled state rather than presenting buttons that do nothing.
+ *
+ * pricing:
  *   { status: 'idle'|'loading'|'ready'|'error',
  *     price, originalPrice, currency,
  *     billableSeconds, creditsApplied,
@@ -49,14 +50,12 @@ export default function PurchaseConfirmationModal({
 
   if (!isOpen) return null;
 
-  const totalSeconds = cart.reduce((sum, video) => sum + (video.duration ?? 0), 0);
+  const totalSeconds = cart.reduce((sum, clip) => sum + getClipDuration(clip), 0);
   const isPricing = pricing?.status === 'loading';
   const currency = pricing?.currency || 'USD';
 
   const priceLabel =
-    pricing && typeof pricing.price === 'number'
-      ? formatMoney(pricing.price, currency)
-      : null;
+    pricing && typeof pricing.price === 'number' ? formatMoney(pricing.price, currency) : null;
   const originalLabel =
     pricing &&
     typeof pricing.originalPrice === 'number' &&
@@ -91,7 +90,6 @@ export default function PurchaseConfirmationModal({
           <i className="ph-bold ph-x"></i>
         </button>
 
-        {/* Header */}
         <div className="px-6 sm:px-8 pt-7 pb-5">
           <p className="text-[11px] font-black uppercase tracking-[0.2em] text-ember mb-1.5">
             Checkout
@@ -104,7 +102,6 @@ export default function PurchaseConfirmationModal({
           </h2>
         </div>
 
-        {/* Scrollable body */}
         <div className="px-6 sm:px-8 overflow-y-auto flex-1 min-h-0">
           {cart.length === 0 ? (
             <div className="text-center py-12">
@@ -123,12 +120,15 @@ export default function PurchaseConfirmationModal({
             <>
               {/* Ordered filmstrip — the combine order, made visible */}
               <ol className="relative space-y-3">
-                {cart.map((video, index) => {
-                  const thumbnail = getVideoThumbnail(video);
-                  const title = getVideoTitle(video);
+                {cart.map((clip, index) => {
+                  const thumbnail = getClipThumbnail(clip);
+                  const title = getClipTitle(clip);
+                  const timeLabel = getClipTimeLabel(clip);
+                  const duration = getClipDuration(clip);
+
                   return (
                     <li
-                      key={video.id}
+                      key={clip.id}
                       className="relative flex items-center gap-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-3"
                     >
                       {index < cart.length - 1 && (
@@ -142,13 +142,17 @@ export default function PurchaseConfirmationModal({
                         {index + 1}
                       </span>
 
-                      <div className="w-20 sm:w-24 shrink-0 aspect-video rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800">
+                      <div className="w-20 sm:w-24 shrink-0 aspect-video rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800 relative">
                         {thumbnail ? (
                           <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
                         ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-                            <i className="ph-fill ph-play text-gray-500 dark:text-gray-400"></i>
-                          </div>
+                          <span
+                            className={`absolute inset-0 flex items-center justify-center ${
+                              clip.gradientDir || 'bg-gradient-to-br'
+                            } ${clip.gradient || 'from-gray-300 to-gray-400 dark:from-gray-700 dark:to-gray-800'}`}
+                          >
+                            <i className="ph-fill ph-play text-white/70"></i>
+                          </span>
                         )}
                       </div>
 
@@ -156,17 +160,17 @@ export default function PurchaseConfirmationModal({
                         <p className="font-bold text-sm text-gray-900 dark:text-white truncate">
                           {title}
                         </p>
-                        <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-0.5 flex items-center gap-1.5">
-                          {video.startTime && (
-                            <>
+                        <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-0.5 flex items-center gap-1.5 flex-wrap">
+                          {timeLabel && (
+                            <span className="inline-flex items-center gap-1">
                               <i className="ph-bold ph-calendar-blank"></i>
-                              {formatDateTime(video.startTime)}
-                            </>
+                              {timeLabel}
+                            </span>
                           )}
-                          {video.duration != null && (
+                          {duration > 0 && (
                             <span className="inline-flex items-center gap-1">
                               <i className="ph-bold ph-clock"></i>
-                              {formatClock(video.duration)}
+                              {formatClock(duration)}
                             </span>
                           )}
                         </p>
@@ -192,7 +196,7 @@ export default function PurchaseConfirmationModal({
                       </div>
 
                       <button
-                        onClick={() => onRemove(video.id)}
+                        onClick={() => onRemove(clip.id)}
                         aria-label={`Remove clip ${index + 1}`}
                         className="w-8 h-8 shrink-0 flex items-center justify-center rounded-full text-gray-400 hover:text-white hover:bg-ember transition-colors"
                       >
@@ -206,12 +210,11 @@ export default function PurchaseConfirmationModal({
               <div className="mt-4 flex items-start gap-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-3.5 py-3">
                 <i className="ph-duotone ph-film-strip text-ember text-lg mt-px"></i>
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Your clips are combined into one video, in the order shown.
-                  Use the arrows to arrange your reel.
+                  Your clips are combined into one video, in the order shown. Use the arrows to
+                  arrange your reel.
                 </p>
               </div>
 
-              {/* Totals — priced server-side by total duration */}
               <div className="mt-5 border-t border-gray-200 dark:border-white/10 pt-4 space-y-2.5">
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-semibold text-gray-500 dark:text-gray-400">
@@ -224,9 +227,7 @@ export default function PurchaseConfirmationModal({
 
                 {typeof pricing?.billableSeconds === 'number' && (
                   <div className="flex items-center justify-between text-sm">
-                    <span className="font-semibold text-gray-500 dark:text-gray-400">
-                      Billable
-                    </span>
+                    <span className="font-semibold text-gray-500 dark:text-gray-400">Billable</span>
                     <span className="font-bold text-gray-900 dark:text-white tabular-nums">
                       {formatClock(pricing.billableSeconds)}
                     </span>
@@ -267,7 +268,6 @@ export default function PurchaseConfirmationModal({
                 </div>
               </div>
 
-              {/* Discount code */}
               <div className="mt-4">
                 <form
                   onSubmit={(e) => {
@@ -320,7 +320,6 @@ export default function PurchaseConfirmationModal({
           )}
         </div>
 
-        {/* Footer */}
         {cart.length > 0 && (
           <div className="px-6 sm:px-8 pt-5 pb-6 mt-2">
             <div className="flex items-center justify-end gap-3">

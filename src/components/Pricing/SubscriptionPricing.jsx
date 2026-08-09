@@ -1,63 +1,8 @@
 import { Link } from 'react-router-dom';
+import { SUBSCRIPTION_PLANS } from '../../data/subscriptionPlans';
 
 export default function SubscriptionPricing() {
-  const plans = [
-    {
-      name: 'Rookie',
-      price: 'Free',
-      suffix: '',
-     // button: 'Try It Free',
-      popular: false,
-      features: [
-        '1080p HD Video',
-        'Anytime Video Purchasing',
-        'Unlimited Video Downloads',
-        'Video access expires after 30 days',
-      ],
-    },
-    {
-      name: 'Elite',
-      price: '$4.99',
-      suffix: '/mo',
-      //button: 'Subscribe',
-      popular: true,
-      features: [
-        '1080p HD Video',
-        'Anytime Video Purchasing',
-        'Unlimited Video Downloads',
-        '8 Hours of Akture Cloud Storage',
-        '30 minutes of free video per month',
-      ],
-    },
-    {
-      name: 'Pro',
-      price: '$9.99',
-      suffix: '/mo',
-      //button: 'Subscribe',
-      popular: false,
-      features: [
-        '1080p HD Video',
-        'Anytime Video Purchasing',
-        'Unlimited Video Downloads',
-        '16 Hours of Akture Cloud Storage',
-        '1 hour of free video per month',
-      ],
-    },
-    {
-      name: 'GOAT',
-      price: '$24.99',
-      suffix: '/mo',
-      //button: 'Subscribe',
-      popular: false,
-      features: [
-        '1080p HD Video',
-        'Anytime Video Purchasing',
-        'Unlimited Video Downloads',
-        '50 Hours of Akture Cloud Storage',
-        '2 hours of free video per month',
-      ],
-    },
-  ];
+  const plans = SUBSCRIPTION_PLANS;
 
   return (
     <section className="bg-gray-50 dark:bg-black/40 px-6 md:px-12 py-16">
@@ -113,16 +58,6 @@ export default function SubscriptionPricing() {
                     </li>
                   ))}
                 </ul>
-
-                <button
-                  className={`w-full mt-8 py-3 rounded-xl font-black transition-all ${
-                    plan.popular
-                      ? 'bg-gradient-ember text-white'
-                      : 'bg-ember/10 hover:bg-ember hover:text-white text-ember'
-                  }`}
-                >
-                  {plan.button}
-                </button>
               </div>
             ))}
           </div>

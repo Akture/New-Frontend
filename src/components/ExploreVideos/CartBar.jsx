@@ -1,9 +1,9 @@
-import { formatClock } from '../../utils/videoUtils';
+import { formatClock, getClipDuration } from './clipShape';
 
 export default function CartBar({ cart, onReview, onClear }) {
   if (cart.length === 0) return null;
 
-  const totalSeconds = cart.reduce((sum, video) => sum + (video.duration ?? 0), 0);
+  const totalSeconds = cart.reduce((sum, clip) => sum + getClipDuration(clip), 0);
 
   return (
     <div className="fixed bottom-5 inset-x-4 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 z-40 animate-rise">
@@ -13,7 +13,8 @@ export default function CartBar({ cart, onReview, onClear }) {
           <p className="text-sm font-bold text-gray-900 dark:text-white whitespace-nowrap tabular-nums">
             {cart.length} clip{cart.length !== 1 ? 's' : ''}
             <span className="text-gray-400 dark:text-gray-500 font-semibold">
-              {' '}· {formatClock(totalSeconds)}
+              {' '}
+              · {formatClock(totalSeconds)}
             </span>
           </p>
         </div>
