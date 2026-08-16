@@ -5,7 +5,7 @@ export default function Footer() {
   const exploreLinks = [
     { label: 'Home', path: '/' },
     { label: 'Purchase', path: 'https://akture.video/explore' },
-    { label: 'Pricing', path: '/pricing' },
+    { label: 'Pricing', path: 'https://akture.video/pricing' },
     { label: 'Locations', path: '/locations' },
     { label: 'About', path: '/about' },
     { label: 'FAQ', path: '/faq' },
