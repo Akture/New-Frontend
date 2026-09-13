@@ -1,19 +1,34 @@
 import { useState } from 'react';
+import feedbackService from '../../services/feedbackService';
 
 export default function FeedbackTab() {
   const [feedback, setFeedback] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent
+  const [submitError, setSubmitError] = useState(null);
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (feedback.trim() && rating > 0) {
-      setSubmitted(true);
+    if (status === 'sending') return;
+    if (!feedback.trim() || rating === 0) return;
+
+    setStatus('sending');
+    setSubmitError(null);
+
+    try {
+      await feedbackService.submitFeedback({
+        feedbackContent: feedback.trim(),
+        rating,
+      });
+      setStatus('sent');
+    } catch (error) {
+      setStatus('idle');
+      setSubmitError(error.message);
     }
   };
 
-  if (submitted) {
+  if (status === 'sent') {
     return (
       <div className="flex flex-col items-center justify-center p-12 rounded-2xl border shadow-sm max-w-2xl mx-auto mt-8 bg-white border-gray-200 dark:bg-[#111827] dark:border-white/10">
         <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 bg-emerald/10">
@@ -32,7 +47,8 @@ export default function FeedbackTab() {
 
         <button
           onClick={() => {
-            setSubmitted(false);
+            setStatus('idle');
+            setSubmitError(null);
             setFeedback('');
             setRating(0);
           }}
@@ -93,12 +109,31 @@ export default function FeedbackTab() {
           />
         </div>
 
+        {submitError && (
+          <div className="rounded-lg border border-ember/40 bg-ember/5 px-4 py-3">
+            <p className="text-sm text-ember font-medium">
+              {submitError} — or email us directly at{' '}
+              <a href="mailto:contact@akture.video" className="font-bold underline">
+                contact@akture.video
+              </a>
+              .
+            </p>
+          </div>
+        )}
+
         <button
           type="submit"
-          disabled={!feedback.trim() || rating === 0}
-          className="self-start px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-ember"
+          disabled={!feedback.trim() || rating === 0 || status === 'sending'}
+          className="self-start px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-ember inline-flex items-center gap-2"
         >
-          Submit Feedback
+          {status === 'sending' ? (
+            <>
+              <i className="ph-bold ph-circle-notch animate-spin text-base" aria-hidden="true"></i>
+              Sending...
+            </>
+          ) : (
+            'Submit Feedback'
+          )}
         </button>
       </form>
     </div>
