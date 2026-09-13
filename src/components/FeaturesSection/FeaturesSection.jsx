@@ -86,12 +86,14 @@ export default function FeaturesSection() {
             ))}
           </div>
 
-          <Link
-  to="https://akture.video/login"
-  className="inline-block bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all"
->
-  Start Capturing With Akture
-</Link>
+          <div className="flex justify-center">
+  <a
+    href="https://akture.video/login"
+    className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all"
+  >
+    Start Capturing With Akture
+  </a>
+</div>
         </div>
       </div>
     </section>
