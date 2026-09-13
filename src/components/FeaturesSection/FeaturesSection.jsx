@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function FeaturesSection() {
   const features = [
     {
@@ -85,11 +86,12 @@ export default function FeaturesSection() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <button className="bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all">
-              Start Capturing With Akture
-            </button>
-          </div>
+          <Link
+  to="/signup"
+  className="inline-block bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all"
+>
+  Start Capturing With Akture
+</Link>
         </div>
       </div>
     </section>
