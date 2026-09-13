@@ -22,7 +22,7 @@ export default function Footer() {
   const companyLinks = [
     { label: 'About Us', path: '/about' },
     { label: 'Careers', path: 'mailto:contact@akture.video?subject=Interested%20in%20joining%20the%20Akture%20team' },
-    { label: 'Contact', path: 'https://akture.video/contact' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   const legalLinks = [

@@ -44,6 +44,15 @@ class UserService {
     }
   }
 
+  async contactUs({ name, email, message }) {
+    try {
+      const response = await api.post('/users/contact', { name, email, message });
+      return response.data;
+    } catch (error) {
+      throw new Error(this._extractErrorMessage(error));
+    }
+  }
+
   async getPurchasedVideosByUser(userId) {
     try {
       const response = await api.get(`/users/${userId}/purchased-videos`);
