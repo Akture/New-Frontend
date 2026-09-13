@@ -87,7 +87,7 @@ export default function FeaturesSection() {
           </div>
 
           <Link
-  to="/signup"
+  to="https://akture.video/login"
   className="inline-block bg-gradient-ember text-white px-8 py-4 rounded-full font-semibold transition-all"
 >
   Start Capturing With Akture
