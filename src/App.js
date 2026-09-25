@@ -12,6 +12,7 @@ import PurchasedVideosPage from './pages/PurchasedVideosPage';
 import LivestreamsPage from './pages/LivestreamsPage';
 import PricingPage from './pages/PricingPage';
 import FAQPage from './pages/FAQPage';
+import ContactUsPage from './pages/ContactUsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import ReturnPolicyPage from './pages/ReturnPolicyPage';
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/livestreams" element={<LivestreamsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
           <Route path="/return-policy" element={<ReturnPolicyPage />} />
